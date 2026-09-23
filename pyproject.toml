@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icarus-csv-evidence-lab"
+version = "0.1.0"
+description = "Read-only CSV evidence triage and synthetic parser fixtures"
+requires-python = ">=3.10"
+
+[project.scripts]
+icarus-csv-evidence = "csv_evidence.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
