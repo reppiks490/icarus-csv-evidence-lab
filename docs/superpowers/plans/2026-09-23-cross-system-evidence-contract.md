@@ -501,13 +501,13 @@ git commit -m "feat: inventory git and chat metadata without content leakage"
 
 **Interfaces:**
 - Consumes: `audit_file`'s findings and a source record tied to the same SHA-256.
-- Produces: `assess_source(scan: dict, source: dict, attestations: list[dict], *, reviewed_evidence: set[str] | None = None) -> dict` with `state`, `reasons`, `execution_authorized=False`. The reviewed hash set is an explicit, separate human-review input; the lab never produces `research_eligible` or `execution_eligible`.
+- Produces: `assess_source(scan: dict, source: dict, attestations: list[dict], *, reviewed_evidence: set[str] | None = None) -> dict` with at most `identity_verified`; `assess_observation(observation: dict, *, decision_ns: int, parent_knowledge_ns: tuple[int, ...] = (), reviewed_evidence: set[str] | None = None) -> dict` for each value/revision; `choose_asof_revision(rows: list[dict], decision_ns: int, reviewed_evidence: set[str]) -> dict | None`. A file-wide timestamp cannot certify every observation. This lab never produces `research_eligible` or `execution_eligible`.
 
 - [ ] **Step 1: Write failing timing and representation tests**
 
 ```python
 import unittest
-from csv_evidence.provenance import assess_source, resolve_local_time
+from csv_evidence.provenance import assess_source, assess_observation, choose_asof_revision, resolve_local_time
 
 SCAN = {"sha256":"a"*64, "parse_complete":True, "finding_counts":{}}
 SOURCE = {"digest":"a"*64}
@@ -515,6 +515,9 @@ IDENTITY = {"kind":"identity", "source_sha256":"a"*64, "reviewer":"owner",
             "evidence_sha256":"b"*64, "provider":"TradingView", "symbol":"NQ1!",
             "representation":"heikin_ashi", "session":"RTH", "timezone":"America/Chicago",
             "bar_stamp":"open", "roll_rule":"volume", "license":"private_research"}
+REV0 = {"observation_id":"macro-cpi","source_sha256":"a"*64,
+        "event_ns":100,"source_publish_ns":101,"first_observed_ns":102,
+        "ingest_ns":103,"revision_id":"v0","revision_of":None,"evidence_sha256":"c"*64}
 
 class ProvenanceTests(unittest.TestCase):
     def test_unknown_availability_never_promotes(self):
@@ -528,12 +531,31 @@ class ProvenanceTests(unittest.TestCase):
         self.assertIn("identity_evidence_unreviewed", result["reasons"])
 
     def test_revised_row_without_first_release_fails_closed(self):
-        result = assess_source(SCAN, SOURCE, [IDENTITY,
-            {"kind":"availability", "source_sha256":"a"*64, "reviewer":"data_auditor",
-             "evidence_sha256":"c"*64, "event_ns":100, "revision":2}],
-            reviewed_evidence={"b"*64, "c"*64})
-        self.assertEqual(result["state"], "identity_verified")
-        self.assertIn("first_release_missing", result["reasons"])
+        revised={**REV0,"revision_id":"v1","revision_of":"v0",
+                 "source_publish_ns":None,"first_observed_ns":None}
+        result=assess_observation(revised,decision_ns=120,reviewed_evidence={"c"*64})
+        self.assertFalse(result["usable"])
+        self.assertEqual(result["reason"],"unknown_temporal_provenance")
+
+    def test_late_revision_cannot_enter_past_snapshot(self):
+        revised={**REV0,"revision_id":"v1","revision_of":"v0",
+                 "source_publish_ns":150,"first_observed_ns":151,"ingest_ns":152}
+        result=assess_observation(revised,decision_ns=120,reviewed_evidence={"c"*64})
+        self.assertFalse(result["usable"])
+        self.assertEqual(choose_asof_revision([REV0,revised],120,{"c"*64})["revision_id"],"v0")
+
+    def test_derived_feature_inherits_latest_parent_time(self):
+        derived={**REV0,"derived":True}
+        result=assess_observation(derived,decision_ns=120,parent_knowledge_ns=(110,150),
+                                  reviewed_evidence={"c"*64})
+        self.assertFalse(result["usable"])
+        self.assertEqual(result["knowledge_ns"],150)
+
+    def test_future_revision_injection_leaves_past_snapshot_unchanged(self):
+        revised={**REV0,"revision_id":"v1","revision_of":"v0",
+                 "source_publish_ns":150,"first_observed_ns":151,"ingest_ns":152}
+        self.assertEqual(choose_asof_revision([REV0],120,{"c"*64}),
+                         choose_asof_revision([REV0,revised],120,{"c"*64}))
 
     def test_malformed_ohlc_cannot_promote(self):
         bad = {**SCAN, "finding_counts":{"ohlc_inconsistent":1}}
@@ -610,28 +632,57 @@ def assess_source(scan: dict, source: dict, attestations: list[dict], *,
         reasons.append("identity_evidence_unreviewed")
     else:
         state = "identity_verified"
-        release = next((a for a in attestations if a.get("kind") == "availability"
-                        and a.get("source_sha256") == source["digest"]), None)
-        if release is None or release.get("first_release_ns") is None:
-            reasons.append("first_release_missing")
-        elif isinstance(release["first_release_ns"], bool) or not isinstance(release["first_release_ns"], int):
-            reasons.append("first_release_invalid")
-        elif isinstance(release.get("event_ns"), bool) or not isinstance(release.get("event_ns"), int):
-            reasons.append("event_time_invalid")
-        elif release["first_release_ns"] < release.get("event_ns", 0):
-            reasons.append("release_before_event")
-        elif release.get("revision", 0) and release.get("first_release_basis") not in {"publisher_log", "observed_receipt"}:
-            reasons.append("revision_release_basis_missing")
-        elif not release.get("reviewer") or not release.get("evidence_sha256"):
-            reasons.append("availability_evidence_missing")
-        elif release["evidence_sha256"] not in reviewed_evidence:
-            reasons.append("availability_evidence_unreviewed")
-        else:
-            state = "point_in_time_verified"
+        reasons.append("per_observation_availability_not_yet_proven")
     return {"state":state, "reasons":reasons, "execution_authorized":False}
+
+TIMES = ("event_ns", "source_publish_ns", "first_observed_ns", "ingest_ns")
+
+def assess_observation(observation: dict, *, decision_ns: int,
+                       parent_knowledge_ns: tuple[int, ...] = (),
+                       reviewed_evidence: set[str] | None = None) -> dict:
+    unknown={"usable":False,"knowledge_ns":None,"reason":"unknown_temporal_provenance"}
+    if isinstance(decision_ns,bool) or not isinstance(decision_ns,int): return unknown
+    if any(isinstance(observation.get(k),bool) or not isinstance(observation.get(k),int) for k in TIMES):
+        return unknown
+    if not isinstance(observation.get("revision_id"),str) or not observation["revision_id"]:
+        return unknown
+    if not isinstance(observation.get("observation_id"),str) or not observation["observation_id"]:
+        return unknown
+    if not isinstance(observation.get("source_sha256"),str) or len(observation["source_sha256"])!=64:
+        return unknown
+    if observation.get("revision_of") is not None and not isinstance(observation["revision_of"],str):
+        return unknown
+    if observation.get("derived") and not parent_knowledge_ns:
+        return unknown
+    if any(isinstance(t,bool) or not isinstance(t,int) for t in parent_knowledge_ns):
+        return unknown
+    if observation.get("evidence_sha256") not in (reviewed_evidence or set()):
+        return {"usable":False,"knowledge_ns":None,"reason":"availability_evidence_unreviewed"}
+    if not (observation["source_publish_ns"] <= observation["first_observed_ns"] <= observation["ingest_ns"]):
+        return {"usable":False,"knowledge_ns":None,"reason":"clock_order_invalid"}
+    knowledge=max(observation["source_publish_ns"],observation["first_observed_ns"],
+                  observation["ingest_ns"],*parent_knowledge_ns)
+    return {"usable":knowledge<=decision_ns,"knowledge_ns":knowledge,
+            "reason":"known_asof" if knowledge<=decision_ns else "future_visible"}
+
+def choose_asof_revision(rows: list[dict], decision_ns: int,
+                         reviewed_evidence: set[str]) -> dict | None:
+    if len({(r.get("observation_id"),r.get("source_sha256")) for r in rows}) > 1:
+        raise ValueError("revision rows must belong to one source observation")
+    if len({r.get("revision_id") for r in rows}) != len(rows):
+        raise ValueError("duplicate revision id")
+    eligible=[]
+    for row in rows:
+        result=assess_observation(row,decision_ns=decision_ns,
+                                  reviewed_evidence=reviewed_evidence)
+        if result["usable"]: eligible.append((result["knowledge_ns"],row))
+    if not eligible: return None
+    latest=max(t for t,_ in eligible)
+    matches=[row for t,row in eligible if t==latest]
+    return matches[0] if len(matches)==1 else None
 ```
 
-Add a test with `revision=2`, `first_release_ns=120`, and no `first_release_basis`; expect `identity_verified` with `revision_release_basis_missing`. A mixed HA/standard file is represented as `mixed`, which is not in `REPRESENTATIONS`; a continuous contract with unknown roll is rejected by `identity_incomplete`. Document that the externally reviewed hash set records a human review, not a cryptographic signature or training approval; the default empty set never promotes a claim.
+Add a test with `source_publish_ns=150`, `event_ns=100`, and `decision_ns=120`; expect `future_visible` even though the event time is old. Also test that a derived observation with a missing parent timestamp fails closed, that two revisions with identical knowledge time yield no unambiguous choice, and that an unreviewed evidence hash cannot qualify. A mixed HA/standard file is represented as `mixed`, which is not in `REPRESENTATIONS`; a continuous contract with unknown roll is rejected by `identity_incomplete`. Document that the externally reviewed hash set records a human review, not a cryptographic signature or training approval; the default empty set never promotes a claim.
 
 - [ ] **Step 4: Run tests**
 
@@ -640,7 +691,7 @@ py -3 -m unittest tests.test_provenance -v
 py -3 -m unittest discover -s tests -v
 ```
 
-Expected: no malformed source or unknown availability reaches `point_in_time_verified`; all tests pass.
+Expected: no whole file receives point-in-time status from one timestamp; an observation/revision is usable only as of its reviewed knowledge time; all tests pass.
 
 - [ ] **Step 5: Commit**
 
