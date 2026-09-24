@@ -756,9 +756,15 @@ class LedgerTests(unittest.TestCase):
         from pathlib import Path
         p=Path(__file__).resolve().parents[1]/"docs/PROGRAM_REQUIREMENTS.json"
         rows=json.loads(p.read_text(encoding="utf-8"))
-        self.assertEqual({r["id"] for r in rows}, {f"REQ-{i:03d}" for i in range(1,26)})
+        self.assertEqual({r["id"] for r in rows}, {f"REQ-{i:03d}" for i in range(1,27)})
         self.assertTrue(all(r["sources"] for r in rows))
         self.assertTrue(all(r["next_action"] for r in rows))
+
+    def test_superseded_historical_timeframe_never_counts_as_verified(self):
+        req={"id":"REQ-026","system":"ICARUS","statement":"Historic 2-minute NQ trial",
+             "sources":[],"artifacts":["a"*64],"verification":"superseded",
+             "next_action":"Do not implement; later 20-minute owner setting governs"}
+        self.assertFalse(build_ledger([],[req],reviewed_artifacts={"a"*64})["requirements"][0]["verified"])
 ```
 
 - [ ] **Step 2: Run test and confirm import failure**
@@ -825,16 +831,17 @@ Use these exact IDs and statements in `docs/PROGRAM_REQUIREMENTS.json` (one obje
 | REQ-015 | ICARUS | Recover the exact Opus qualification floor and close missing-tune/missing-field loopholes |
 | REQ-016 | ICARUS | Create an exceptional-candidates repo for fully cited candidates exceeding the fixed baseline |
 | REQ-017 | ICARUS | Replace the XGBoost stub and file-existence gate with trained, versioned, held-out artifacts |
-| REQ-018 | PROGRAM | Build per-asset/timeframe/representation ML with point-in-time macro, news, and financial features |
+| REQ-018 | PROGRAM | Build per-asset/timeframe/representation ML with point-in-time macro, news, and financial features; test bounded per-asset empirical percentile adaptation as a research hypothesis, not an active Pulse change |
 | REQ-019 | PROGRAM | Select champion/challenger candidates per asset/timeframe/regime in shadow mode only |
 | REQ-020 | PROGRAM | Analyze settled losing trades without retroactively altering earlier decisions |
 | REQ-021 | ICARUS | Replace the ten-minute delayed Yahoo path only with verified real-time data entitlement or chart data |
-| REQ-022 | ICARUS | Deliver the private realistic backtester, multi-asset views, and configurable dashboard |
+| REQ-022 | ICARUS | Deliver a private backtest lab with uploaded exports, annual slices across an eight-year window, regular-versus-HA and RTH filters, metrics, drawdowns, parameter comparisons, validated interactions, and a private URL; do not publish publicly without approval |
 | REQ-023 | PROGRAM | Maintain owner-actions for exports, paid feeds, licenses, API keys, and eventual broker/prop decisions |
 | REQ-024 | ICARUS | Defer themes, strategy-reactive animations, and lawful Dreambound playback until research/parity work |
 | REQ-025 | PROGRAM | Require source timing, protected holdout, and real-fill parity gates before any execution discussion |
+| REQ-026 | ICARUS | Record the older one-year 2-minute NQ Heikin Ashi test request as superseded by the later 20-minute owner configuration; do not silently run the obsolete settings |
 
-Update the source index when a new AEGIS package or ORACLE checkpoint arrives; do not replace older claims silently. Tests load this committed matrix and assert all 25 IDs, exact system names, source-or-gap links, and no unresolved `verified=True` flag.
+For REQ-026, cite the older `Backtest Heikin Ashi Strategy` ChatGPT thread `6a94968c-3f68-83e9-b6d4-95ba579dfc53` and the later 20-minute instruction in the current Codex task; set `verification="superseded"` and `next_action="Do not implement the 2-minute setup; verify REQ-005 against the current 20-minute export"`. For REQ-022, cite `Build Backtest Lab` turn `6de29ff0-cecb-410e-85dd-e0dd464c46c3`. Update the source index when a new AEGIS package or ORACLE checkpoint arrives; do not replace older claims silently. Tests load this committed matrix and assert all 26 IDs, exact system names, source-or-gap links, and no unresolved `verified=True` flag.
 
 - [ ] **Step 4: Run tests and inspect the human-readable ledger**
 
