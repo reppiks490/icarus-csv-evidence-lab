@@ -1,6 +1,6 @@
 {
   "schema": "advanced-csv-nexus-state-v1",
-  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02",
+  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-03",
   "authoritative_reconciliation": {
     "ten_archives_identified": true,
     "physical_csv_members": 659,
@@ -17,10 +17,14 @@
     "Locate/reconcile any owner corpus beyond the verified ten-ZIP / 803-extracted-file checkpoint.",
     "Hash-reconcile the five Icarus-engine MNQ CSVs against the 542-content owner corpus.",
     "Recover or document the exact original Massive aggregate-bar query resolution used to build the corrected MNQ tape.",
-    "Obtain member-level SHA-256 manifest or binary access to the ten ZIP archives to prove/disprove MNQ byte overlap with the 542-content baseline."
+    "Obtain member-level SHA-256 manifest or binary access to the ten ZIP archives to prove/disprove MNQ byte overlap with the 542-content baseline.",
+    "Directly compare the five fresh MNQ SHA-256 values against the intentionally off-Git 542-member parallax-ten-archives manifest.",
+    "Classify nominal-step gaps against the CME session/holiday calendar before labeling any as missing bars."
   ],
   "next_collection_targets": [
-    "hash-reconcile Icarus-engine MNQ CSVs against the 542-content archive manifest",
+    "obtain or regenerate the 542-member hash manifest and perform direct set-membership tests for the five MNQ SHA-256 values",
+    "audit Massive source query parameters and contract-roll boundary continuity",
+    "classify MNQ gap transitions against CME trading-session and holiday semantics",
     "audit Massive source query parameters and per-contract coverage/roll-boundary continuity",
     "materialize the ten ZIPs and Icarus-engine MNQ CSVs in a binary-capable environment; compute comparable SHA-256",
     "parse corrected MNQ 5m/10m/20m/30m rows and timestamp continuity",
@@ -33,7 +37,7 @@
   "production_or_model_changes": false,
   "additional_candidate_corpora": {
     "icarus_engine_real_mnq": {
-      "status": "DISTINCT_PROVENANCE_FAMILY_CANDIDATE_UNRECONCILED_WITH_542_SHA_SET",
+      "status": "PROVISIONAL_NEW_PROVENANCE_BRANCH_UNRECONCILED_WITH_OFF_GIT_542_HASH_SET",
       "repository": "reppiks490/Icarus-engine",
       "files": 5,
       "corrected_full_files": 4,
@@ -91,7 +95,25 @@
         "simple_offset_resample_missing_rows": 14,
         "simple_offset_resample_mismatched_rows": 21
       },
-      "count_into_existing_542_baseline": false
+      "count_into_existing_542_baseline": false,
+      "fresh_sha256": {
+        "data/mnq_5m_full.csv": "2fba11ce4e0a0297602630a8642ac1e67e3d59691beb22d4799d8842d945b486",
+        "data/mnq_10m_full.csv": "099c7d730f3a0c44d2a6940df9ee6ba7abc63ed4e711c8d52c658123083a6245",
+        "data/mnq_20m.csv": "5b4f6d951dcc9a0666af3706e84080a54b6f60ab21caaf2cb776763d00615faf",
+        "data/mnq_20m_full.csv": "97df2ad2cfcc3fb26a1f1956dd8de50bcb3b966416ff09dd0fccda7293a04cfd",
+        "data/mnq_30m_full.csv": "55c38b4aee327446bc247c040ade0f20d19cd711a573133dc02c9853096084c5"
+      },
+      "fresh_byte_validation": {
+        "total_bytes": 18840173,
+        "total_rows_across_representations": 284825,
+        "unique_sha256_within_family": 5,
+        "duplicate_timestamps_each_file": 0,
+        "out_of_order_rows_each_file": 0,
+        "invalid_ohlc_rows_each_file": 0,
+        "off_quarter_tick_rows_each_file": 0,
+        "invalid_volume_rows_each_file": 0,
+        "global_persisted_hash_reference_matches": 0
+      }
     }
   }
 }
