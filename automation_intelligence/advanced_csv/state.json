@@ -1,6 +1,7 @@
 {
   "schema": "advanced-csv-nexus-state-v1",
-  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
+  "as_of_run_id": "ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE",
+  "previous_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
   "authoritative_reconciliation": {
     "ten_archives_identified": true,
     "physical_csv_members": 659,
@@ -9,130 +10,47 @@
     "extracted_physical_files": 803,
     "exact_sha_set_parity_between_zips_and_extracted": true
   },
-  "open_gaps": [
-    "Recompute archive SHA-256 and enumerate members in a binary-capable runtime.",
-    "Compare per-member timestamp ranges and schema fingerprints against representation registry.",
-    "Resolve chart/provider/session/timezone/continuous-roll identity for owner exports.",
-    "Investigate the 626-row historical counting discrepancy without assuming its cause.",
-    "Locate/reconcile any owner corpus beyond the verified ten-ZIP / 803-extracted-file checkpoint.",
-    "Hash-reconcile the five Icarus-engine MNQ CSVs against the 542-content owner corpus.",
-    "Recover or document the exact original Massive aggregate-bar query resolution used to build the corrected MNQ tape.",
-    "Obtain member-level SHA-256 manifest or binary access to the ten ZIP archives to prove/disprove MNQ byte overlap with the 542-content baseline.",
-    "Directly compare the five fresh MNQ SHA-256 values against the intentionally off-Git 542-member parallax-ten-archives manifest.",
-    "Determine root cause of confirmed roll-boundary omissions: original Massive query windows vs spill completeness vs extraction/windowing.",
-    "Complete direct Massive source replay for remaining roll-boundary holes when provider quota permits.",
-    "Finish calendar/source adjudication of residual non-maintenance/non-weekend gaps, especially pre-2026 dates."
-  ],
-  "next_collection_targets": [
-    "recover original Massive spill/query parameters and reconcile them with the 8 roll holes",
-    "complete roll-gap source probes for all handoffs",
-    "obtain or regenerate the 542-member hash manifest and test all five MNQ hashes for exact membership",
-    "classify residual 2024-2025 gaps against CME holiday schedules and source replay",
-    "obtain or regenerate the 542-member hash manifest and perform direct set-membership tests for the five MNQ SHA-256 values",
-    "audit Massive source query parameters and per-contract coverage/roll-boundary continuity",
-    "materialize the ten ZIPs and Icarus-engine MNQ CSVs in a binary-capable environment; compute comparable SHA-256",
-    "parse corrected MNQ 5m/10m/20m/30m rows and timestamp continuity",
-    "compare the MNQ content hashes against the 542-content archive manifest",
-    "preserve Massive contract/window/roll lineage separately from derived continuous-series identity",
-    "produce archive/member hash graph and per-member timestamp coverage",
-    "separate standard OHLC, derived chart, profile/signal-enriched, index/CFD/future sibling venues",
-    "reconcile any additional Library/Drive/monothic-stack CSVs against the 542-content SHA set"
-  ],
-  "production_or_model_changes": false,
-  "additional_candidate_corpora": {
-    "icarus_engine_real_mnq": {
-      "status": "PROVISIONAL_NEW_PROVENANCE_BRANCH_UNRECONCILED_WITH_OFF_GIT_542_HASH_SET",
+  "candidate_branches": {
+    "mnq_massive_continuous": {
       "repository": "reppiks490/Icarus-engine",
+      "provenance_commit": "dfce55097efbc200ce2a0664e34dd463fb3824b5",
       "files": 5,
-      "corrected_full_files": 4,
-      "legacy_session_only_files": 1,
-      "corrected_full_csv_bytes": 17818762,
-      "all_csv_bytes_including_legacy": 18840173,
-      "source_vendor_family": "Massive contract-specific MNQ aggregate bars",
-      "contracts": [
-        "MNQZ4",
-        "MNQH5",
-        "MNQM5",
-        "MNQU5",
-        "MNQZ5",
-        "MNQH6",
-        "MNQM6",
-        "MNQU6",
-        "MNQZ6"
-      ],
-      "legacy_20m_rows": 15298,
-      "legacy_20m_sessions": 516,
-      "overlap_with_542_sha_set": "UNRESOLVED",
-      "base_full_representation": {
-        "file": "data/mnq_5m_full.csv",
-        "rows": 140609,
-        "first_ts": "2024-09-20T04:05:00+00:00",
-        "last_ts": "2026-09-18T21:00:00+00:00",
-        "duplicate_timestamps": 0,
-        "non_monotonic_steps": 0
-      },
-      "deterministic_resamples": {
-        "10m": {
-          "rows": 70312,
-          "exact_matches_from_5m": 70312,
-          "mismatches": 0
+      "byte_verified_files": 5,
+      "total_rows_across_files": 284825,
+      "full_session_rows": 269527,
+      "coverage_start": "2024-09-20",
+      "coverage_end": "2026-09-18",
+      "novelty_against_542_set": "unresolved",
+      "hashes": [
+        {
+          "name": "data/mnq_5m_full.csv",
+          "sha256": "2fba11ce4e0a0297602630a8642ac1e67e3d59691beb22d4799d8842d945b486"
         },
-        "20m_full": {
-          "rows": 35161,
-          "exact_matches_from_5m": 35161,
-          "mismatches": 0
+        {
+          "name": "data/mnq_10m_full.csv",
+          "sha256": "099c7d730f3a0c44d2a6940df9ee6ba7abc63ed4e711c8d52c658123083a6245"
         },
-        "30m": {
-          "rows": 23445,
-          "exact_matches_from_5m": 23445,
-          "mismatches": 0
+        {
+          "name": "data/mnq_20m_full.csv",
+          "sha256": "97df2ad2cfcc3fb26a1f1956dd8de50bcb3b966416ff09dd0fccda7293a04cfd"
+        },
+        {
+          "name": "data/mnq_30m_full.csv",
+          "sha256": "55c38b4aee327446bc247c040ade0f20d19cd711a573133dc02c9853096084c5"
+        },
+        {
+          "name": "data/mnq_20m.csv",
+          "sha256": "5b4f6d951dcc9a0666af3706e84080a54b6f60ab21caaf2cb776763d00615faf"
         }
-      },
-      "legacy_session_only_20m": {
-        "csv_rows": 15298,
-        "packed_sessions": 516,
-        "numeric_exact_decode_rows": 15298,
-        "decode_mismatches": 0,
-        "first_ts": "2024-09-20T09:50:00+00:00",
-        "last_ts": "2026-09-18T19:30:00+00:00",
-        "simple_offset_resample_exact_rows": 15263,
-        "simple_offset_resample_missing_rows": 14,
-        "simple_offset_resample_mismatched_rows": 21
-      },
-      "count_into_existing_542_baseline": false,
-      "fresh_sha256": {
-        "data/mnq_5m_full.csv": "2fba11ce4e0a0297602630a8642ac1e67e3d59691beb22d4799d8842d945b486",
-        "data/mnq_10m_full.csv": "099c7d730f3a0c44d2a6940df9ee6ba7abc63ed4e711c8d52c658123083a6245",
-        "data/mnq_20m.csv": "5b4f6d951dcc9a0666af3706e84080a54b6f60ab21caaf2cb776763d00615faf",
-        "data/mnq_20m_full.csv": "97df2ad2cfcc3fb26a1f1956dd8de50bcb3b966416ff09dd0fccda7293a04cfd",
-        "data/mnq_30m_full.csv": "55c38b4aee327446bc247c040ade0f20d19cd711a573133dc02c9853096084c5"
-      },
-      "fresh_byte_validation": {
-        "total_bytes": 18840173,
-        "total_rows_across_representations": 284825,
-        "unique_sha256_within_family": 5,
-        "duplicate_timestamps_each_file": 0,
-        "out_of_order_rows_each_file": 0,
-        "invalid_ohlc_rows_each_file": 0,
-        "off_quarter_tick_rows_each_file": 0,
-        "invalid_volume_rows_each_file": 0,
-        "global_persisted_hash_reference_matches": 0
-      },
-      "roll_boundary_quality": {
-        "status": "CONFIRMED_DATA_QUALITY_DEFECT_IN_CONSTRUCTED_CONTINUOUS_TAPE",
-        "long_roll_gaps": 8,
-        "nominal_5m_slots_absent": 408,
-        "directly_source_confirmed_gap_windows": 3,
-        "additional_first_roll_incoming_contract_confirmed": true,
-        "root_cause": "UNRESOLVED"
-      },
-      "gap_taxonomy": {
-        "transitions_gt_5m": 539,
-        "maintenance_pattern": 394,
-        "weekend_pattern": 96,
-        "residual": 49,
-        "note": "Residual includes holidays, roll holes, and source-level no-bar/provider gaps."
-      }
+      ],
+      "independent_economic_streams": "not equal to file count; four full-session timeframes are derived representations of related rolled MNQ contract history"
     }
-  }
+  },
+  "open_gaps": [
+    "obtain or regenerate the 542-member SHA-256 set in a binary-capable runtime",
+    "test the five MNQ SHA-256 values against that set",
+    "if byte-new, add a lineage edge rather than treating each timeframe as independent economic information",
+    "map raw Massive contract spills to derived 5m/10m/20m/30m representations and preserve roll/session semantics"
+  ],
+  "production_or_model_changes": false
 }
