@@ -1,0 +1,118 @@
+{
+  "schema_version": "advanced-csv-run-v1",
+  "run_id": "ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE",
+  "parent_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
+  "trigger_type": "manual_continue",
+  "workstream": "Advanced CSV/NEXUS",
+  "mode": "data_collection_only",
+  "capabilities_used_successfully": [
+    "Superpowers using-superpowers",
+    "Superpowers verification-before-completion",
+    "GitHub authenticated repository/tree/commit/file/blob reads"
+  ],
+  "capability_notes": {
+    "requested_browser_plugin": "not exposed as callable connector in this runtime",
+    "numeric_effort_control": "not exposed"
+  },
+  "new_candidate_corpus": {
+    "repository": "reppiks490/Icarus-engine",
+    "provenance_commit": "dfce55097efbc200ce2a0664e34dd463fb3824b5",
+    "description": "real continuous MNQ built from Massive contract-level API spill files; explicit front-month roll windows; full-session files anchored to CME 18:00 ET grid; UTC bar-close timestamps",
+    "files": [
+      {
+        "name": "data/mnq_5m_full.csv",
+        "bytes": 9266088,
+        "rows": 140609,
+        "sha256": "2fba11ce4e0a0297602630a8642ac1e67e3d59691beb22d4799d8842d945b486",
+        "first": "2024-09-20T04:05:00+00:00",
+        "last": "2026-09-18T21:00:00+00:00",
+        "cadence_minutes": 5,
+        "git_blob_sha": "76a4a3fe8c3085809855a725af587592480c42de"
+      },
+      {
+        "name": "data/mnq_10m_full.csv",
+        "bytes": 4653836,
+        "rows": 70312,
+        "sha256": "099c7d730f3a0c44d2a6940df9ee6ba7abc63ed4e711c8d52c658123083a6245",
+        "first": "2024-09-20T04:10:00+00:00",
+        "last": "2026-09-18T21:00:00+00:00",
+        "cadence_minutes": 10,
+        "git_blob_sha": "b10cd883b99570f552bcc0807077e06b4c0ba5c8"
+      },
+      {
+        "name": "data/mnq_20m_full.csv",
+        "bytes": 2336132,
+        "rows": 35161,
+        "sha256": "97df2ad2cfcc3fb26a1f1956dd8de50bcb3b966416ff09dd0fccda7293a04cfd",
+        "first": "2024-09-20T04:20:00+00:00",
+        "last": "2026-09-18T21:00:00+00:00",
+        "cadence_minutes": 20,
+        "git_blob_sha": "e4233d6d27cceacf77191ed9d76cb37226b566ba"
+      },
+      {
+        "name": "data/mnq_30m_full.csv",
+        "bytes": 1562706,
+        "rows": 23445,
+        "sha256": "55c38b4aee327446bc247c040ade0f20d19cd711a573133dc02c9853096084c5",
+        "first": "2024-09-20T04:30:00+00:00",
+        "last": "2026-09-18T21:00:00+00:00",
+        "cadence_minutes": 30,
+        "git_blob_sha": "1d9cbf1212e2f3e976cf5032cfc974107118c1ce"
+      },
+      {
+        "name": "data/mnq_20m.csv",
+        "bytes": 1021411,
+        "rows": 15298,
+        "sha256": "5b4f6d951dcc9a0666af3706e84080a54b6f60ab21caaf2cb776763d00615faf",
+        "first": "2024-09-20T09:50:00+00:00",
+        "last": "2026-09-18T19:30:00+00:00",
+        "cadence_minutes": 20,
+        "git_blob_sha": "3d62ac3e74ca954e984dd60823aba3730c983e22"
+      }
+    ],
+    "aggregate_rows_across_five_files": 284825,
+    "aggregate_rows_full_session_four_timeframes": 269527,
+    "validation": {
+      "duplicate_timestamps": 0,
+      "non_monotonic_pairs": 0,
+      "bad_ohlc_rows": 0,
+      "non_quarter_tick_values": 0,
+      "negative_volume_rows": 0,
+      "zero_volume_rows": 0
+    },
+    "representation_findings": {
+      "legacy_20m_vs_full_20m_timestamp_overlap": 0,
+      "interpretation": "distinct bar-grid/session representations of related MNQ history; not simple row subsets",
+      "full_session_generator": "tools/build_mnq.py",
+      "raw_source": "Massive API spill files by explicit MNQ contract",
+      "roll_windows": [
+        "MNQZ4",
+        "MNQH5",
+        "MNQM5",
+        "MNQU5",
+        "MNQZ5",
+        "MNQH6",
+        "MNQM6",
+        "MNQU6",
+        "MNQZ6"
+      ]
+    },
+    "novelty_status": "UNRESOLVED_AGAINST_542_CONTENT_SET",
+    "novelty_reason": "Fresh hashes do not appear in committed NEXUS/PARALLAX docs, but the complete 542-hash member manifest is intentionally uncommitted, so absence from code search is not proof of novelty."
+  },
+  "existing_authoritative_checkpoint": {
+    "zip_members": 659,
+    "logical_rows": 13788256,
+    "distinct_member_sha256_contents": 542,
+    "extracted_physical_files": 803
+  },
+  "next_targets": [
+    "obtain or regenerate the 542-member SHA-256 set in a binary-capable runtime",
+    "test the five MNQ SHA-256 values against that set",
+    "if byte-new, add a lineage edge rather than treating each timeframe as independent economic information",
+    "map raw Massive contract spills to derived 5m/10m/20m/30m representations and preserve roll/session semantics"
+  ],
+  "raw_owner_data_written": false,
+  "downstream_models_modified": false,
+  "execution_authorized": false
+}
