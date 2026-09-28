@@ -1,6 +1,6 @@
 {
   "schema": "advanced-csv-nexus-state-v1",
-  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-01",
+  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02",
   "authoritative_reconciliation": {
     "ten_archives_identified": true,
     "physical_csv_members": 659,
@@ -16,10 +16,12 @@
     "Investigate the 626-row historical counting discrepancy without assuming its cause.",
     "Locate/reconcile any owner corpus beyond the verified ten-ZIP / 803-extracted-file checkpoint.",
     "Hash-reconcile the five Icarus-engine MNQ CSVs against the 542-content owner corpus.",
-    "Independently parse row counts/timestamp continuity for the four large corrected MNQ full-session CSVs.",
-    "Recover or document the exact original Massive aggregate-bar query resolution used to build the corrected MNQ tape."
+    "Recover or document the exact original Massive aggregate-bar query resolution used to build the corrected MNQ tape.",
+    "Obtain member-level SHA-256 manifest or binary access to the ten ZIP archives to prove/disprove MNQ byte overlap with the 542-content baseline."
   ],
   "next_collection_targets": [
+    "hash-reconcile Icarus-engine MNQ CSVs against the 542-content archive manifest",
+    "audit Massive source query parameters and per-contract coverage/roll-boundary continuity",
     "materialize the ten ZIPs and Icarus-engine MNQ CSVs in a binary-capable environment; compute comparable SHA-256",
     "parse corrected MNQ 5m/10m/20m/30m rows and timestamp continuity",
     "compare the MNQ content hashes against the 542-content archive manifest",
@@ -31,14 +33,14 @@
   "production_or_model_changes": false,
   "additional_candidate_corpora": {
     "icarus_engine_real_mnq": {
-      "status": "CANDIDATE_NEW_UNRECONCILED_WITH_542_SHA_SET",
+      "status": "DISTINCT_PROVENANCE_FAMILY_CANDIDATE_UNRECONCILED_WITH_542_SHA_SET",
       "repository": "reppiks490/Icarus-engine",
       "files": 5,
       "corrected_full_files": 4,
       "legacy_session_only_files": 1,
       "corrected_full_csv_bytes": 17818762,
       "all_csv_bytes_including_legacy": 18840173,
-      "source_vendor_family": "Massive Futures Aggregate Bars",
+      "source_vendor_family": "Massive contract-specific MNQ aggregate bars",
       "contracts": [
         "MNQZ4",
         "MNQH5",
@@ -52,7 +54,44 @@
       ],
       "legacy_20m_rows": 15298,
       "legacy_20m_sessions": 516,
-      "overlap_with_542_sha_set": "UNRESOLVED"
+      "overlap_with_542_sha_set": "UNRESOLVED",
+      "base_full_representation": {
+        "file": "data/mnq_5m_full.csv",
+        "rows": 140609,
+        "first_ts": "2024-09-20T04:05:00+00:00",
+        "last_ts": "2026-09-18T21:00:00+00:00",
+        "duplicate_timestamps": 0,
+        "non_monotonic_steps": 0
+      },
+      "deterministic_resamples": {
+        "10m": {
+          "rows": 70312,
+          "exact_matches_from_5m": 70312,
+          "mismatches": 0
+        },
+        "20m_full": {
+          "rows": 35161,
+          "exact_matches_from_5m": 35161,
+          "mismatches": 0
+        },
+        "30m": {
+          "rows": 23445,
+          "exact_matches_from_5m": 23445,
+          "mismatches": 0
+        }
+      },
+      "legacy_session_only_20m": {
+        "csv_rows": 15298,
+        "packed_sessions": 516,
+        "numeric_exact_decode_rows": 15298,
+        "decode_mismatches": 0,
+        "first_ts": "2024-09-20T09:50:00+00:00",
+        "last_ts": "2026-09-18T19:30:00+00:00",
+        "simple_offset_resample_exact_rows": 15263,
+        "simple_offset_resample_missing_rows": 14,
+        "simple_offset_resample_mismatched_rows": 21
+      },
+      "count_into_existing_542_baseline": false
     }
   }
 }
