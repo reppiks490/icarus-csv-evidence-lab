@@ -1,0 +1,219 @@
+{
+  "schema_version": "advanced-csv-run-v1",
+  "run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
+  "parent_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-03",
+  "workstream": "Advanced CSV/NEXUS",
+  "trigger_type": "manual_continue",
+  "mode": "data_collection_only",
+  "superpowers_used": [
+    "using-superpowers",
+    "verification-before-completion"
+  ],
+  "source_snapshots": {
+    "icarus_engine_tree": "d6f1cd03d02e6fd3782a9100352e9e45c13002d0",
+    "mnq_5m_blob": "76a4a3fe8c3085809855a725af587592480c42de",
+    "build_script_blob": "eda31eafd3d9469e6b8daa17155e2bce5b034026",
+    "prior_run": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-03"
+  },
+  "new_evidence": {
+    "massive_bar_semantics": {
+      "endpoint": "GET /futures/v1/aggs/{ticker}",
+      "resolution_used": "5min",
+      "documented_semantics": "bars are built from trades; an interval with no trades has no bar",
+      "window_start_semantics": "start of aggregation interval"
+    },
+    "roll_contract_reference": {
+      "venue": "XCME",
+      "product_code": "MNQ",
+      "checked_roll_dates": [
+        [
+          "MNQZ4",
+          "2024-09-20",
+          true
+        ],
+        [
+          "MNQH5",
+          "2024-12-12",
+          true
+        ],
+        [
+          "MNQM5",
+          "2025-03-13",
+          true
+        ],
+        [
+          "MNQU5",
+          "2025-06-12",
+          true
+        ],
+        [
+          "MNQZ5",
+          "2025-09-11",
+          true
+        ],
+        [
+          "MNQH6",
+          "2025-12-11",
+          true
+        ],
+        [
+          "MNQM6",
+          "2026-03-12",
+          true
+        ],
+        [
+          "MNQU6",
+          "2026-06-11",
+          true
+        ],
+        [
+          "MNQZ6",
+          "2026-09-10",
+          true
+        ]
+      ],
+      "trade_tick_size_points": 0.25,
+      "note": "All nine repository-defined handoff contracts were active in Massive point-in-time reference on the specified dates."
+    },
+    "five_minute_gap_taxonomy": {
+      "total_transitions_larger_than_5m": 539,
+      "daily_maintenance_pattern_65m": 394,
+      "friday_to_sunday_weekend_pattern": 96,
+      "residual_after_these_patterns": 49
+    },
+    "roll_boundary_audit": {
+      "long_roll_gaps": 8,
+      "durations_minutes": {
+        "245": 6,
+        "305": 2
+      },
+      "nominal_5m_slots_absent_across_roll_holes": 408,
+      "junctions": [
+        [
+          "2024-12-12",
+          "2024-12-11 19:00 ET",
+          "2024-12-12 00:05 ET",
+          305,
+          274.75
+        ],
+        [
+          "2025-03-13",
+          "2025-03-12 20:00 ET",
+          "2025-03-13 00:05 ET",
+          245,
+          42
+        ],
+        [
+          "2025-06-12",
+          "2025-06-11 20:00 ET",
+          "2025-06-12 00:05 ET",
+          245,
+          196.5
+        ],
+        [
+          "2025-09-11",
+          "2025-09-10 20:00 ET",
+          "2025-09-11 00:05 ET",
+          245,
+          245.75
+        ],
+        [
+          "2025-12-11",
+          "2025-12-10 19:00 ET",
+          "2025-12-11 00:05 ET",
+          305,
+          33.75
+        ],
+        [
+          "2026-03-12",
+          "2026-03-11 20:00 ET",
+          "2026-03-12 00:05 ET",
+          245,
+          149
+        ],
+        [
+          "2026-06-11",
+          "2026-06-10 20:00 ET",
+          "2026-06-11 00:05 ET",
+          245,
+          656.75
+        ],
+        [
+          "2026-09-10",
+          "2026-09-09 20:00 ET",
+          "2026-09-10 00:05 ET",
+          245,
+          257.75
+        ]
+      ],
+      "source_probe_status": {
+        "2024-12-12_MNQZ4": "CONFIRMED_SOURCE_BARS_INSIDE_TAPE_GAP",
+        "2024-12-12_MNQH5": "CONFIRMED_SOURCE_BARS_INSIDE_TAPE_GAP",
+        "2025-03-13_MNQH5": "CONFIRMED_SOURCE_BARS_INSIDE_TAPE_GAP",
+        "2025-06-12_MNQM5": "CONFIRMED_SOURCE_BARS_INSIDE_TAPE_GAP",
+        "2025-09-11_MNQU5": "PROBE_BLOCKED_BY_PROVIDER_RATE_LIMIT",
+        "remaining_rolls": "NOT_DIRECTLY_REPLAYED_THIS_RUN"
+      },
+      "classification": "CONFIRMED_CONSTRUCTED_TAPE_OMISSION_AT_MULTIPLE_ROLL_BOUNDARIES",
+      "root_cause": "UNRESOLVED"
+    },
+    "holiday_and_residual_gap_evidence": {
+      "cme_primary_url": "https://www.cmegroup.com/trading-hours.html",
+      "cme_2026_windows_observed": [
+        "New Year's",
+        "Martin Luther King Jr.",
+        "Presidents Day",
+        "Good Friday",
+        "Memorial Day",
+        "Juneteenth",
+        "Independence Day",
+        "Labor Day"
+      ],
+      "source_level_unknowns": [
+        {
+          "interval": "2026-09-11 13:05-15:00 ET interior",
+          "massive_replay": "0 records",
+          "classification": "SOURCE_NO_BAR_OR_PROVIDER_GAP_UNRESOLVED"
+        },
+        {
+          "interval": "2026-09-11 16:05-17:00 ET interior",
+          "massive_replay": "0 records",
+          "classification": "SOURCE_NO_BAR_OR_PROVIDER_GAP_UNRESOLVED"
+        }
+      ]
+    }
+  },
+  "validation_status": {
+    "roll_contract_active_checks": "9/9 verified",
+    "roll_gap_source_presence": "verified for multiple roll windows, not all eight",
+    "session_gap_taxonomy": "verified from fresh parse of 5m repository blob",
+    "hash_overlap_with_542": "UNRESOLVED",
+    "production_or_model_changes": false,
+    "raw_owner_data_written": false,
+    "execution_authorized": false
+  },
+  "capabilities_used_successfully": [
+    "Superpowers using-superpowers",
+    "Superpowers verification-before-completion",
+    "GitHub authenticated large text-blob read",
+    "Massive endpoint documentation",
+    "Massive point-in-time futures contract reference",
+    "Massive historical 5-minute aggregate-bar probes",
+    "CME primary holiday/trading-hours web source"
+  ],
+  "relevant_blockers": [
+    {
+      "capability": "Massive plan rate limit",
+      "blocked_action": "complete all eight roll-gap source probes in one pass"
+    },
+    {
+      "capability": "off-Git parallax-ten-archives.json",
+      "blocked_action": "direct membership test of five MNQ hashes against 542-content baseline"
+    },
+    {
+      "capability": "numeric reasoning effort selector",
+      "blocked_action": "set numeric maximum effort"
+    }
+  ],
+  "downstream_modifications": []
+}
