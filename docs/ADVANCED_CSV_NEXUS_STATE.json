@@ -1,0 +1,26 @@
+{
+  "schema": "advanced-csv-nexus-state-v1",
+  "as_of_run_id": "ADVCSV-NEXUS-20260928T1636Z-MANUAL-CONTINUE",
+  "authoritative_reconciliation": {
+    "ten_archives_identified": true,
+    "physical_csv_members": 659,
+    "logical_rows": 13788256,
+    "distinct_sha256_contents": 542,
+    "extracted_physical_files": 803,
+    "exact_sha_set_parity_between_zips_and_extracted": true
+  },
+  "open_gaps": [
+    "Recompute archive SHA-256 and enumerate members in a binary-capable runtime.",
+    "Compare per-member timestamp ranges and schema fingerprints against representation registry.",
+    "Resolve chart/provider/session/timezone/continuous-roll identity for owner exports.",
+    "Investigate the 626-row historical counting discrepancy without assuming its cause.",
+    "Locate/reconcile any owner corpus beyond the verified ten-ZIP / 803-extracted-file checkpoint."
+  ],
+  "next_collection_targets": [
+    "materialize the ten ZIPs in a binary-capable environment and hash each archive",
+    "produce archive/member hash graph and per-member timestamp coverage",
+    "separate standard OHLC, derived chart, profile/signal-enriched, index/CFD/future sibling venues",
+    "reconcile any additional Library/Drive/monothic-stack CSVs against the 542-content SHA set"
+  ],
+  "production_or_model_changes": false
+}
