@@ -1,0 +1,10 @@
+{
+  "schema_version": "advanced-csv-automation-v1",
+  "repository": "reppiks490/icarus-csv-evidence-lab",
+  "owned_root": "automation_intelligence/advanced_csv/",
+  "current_run": null,
+  "status": "INITIALIZED_AWAITING_FIRST_PERSISTED_RUN",
+  "history_immutable": true,
+  "raw_owner_data_committed": false,
+  "execution_authorized": false
+}
