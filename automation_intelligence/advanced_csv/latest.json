@@ -1,234 +1,173 @@
 {
   "schema_version": "advanced-csv-run-v1",
-  "run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-01",
+  "run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02",
+  "parent_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-01",
   "workstream": "Advanced CSV/NEXUS",
   "trigger_type": "manual_continue",
   "mode": "data_collection_only",
   "source_snapshots": {
     "icarus_engine_tree": "d6f1cd03d02e6fd3782a9100352e9e45c13002d0",
-    "real_mnq_build_commit": "f36208a26668f46ae5c4699ee82ad1bc2a0577a5",
-    "data_tracking_commit": "dfce55097efbc200ce2a0664e34dd463fb3824b5"
+    "data_tracking_commit": "dfce55097efbc200ce2a0664e34dd463fb3824b5",
+    "build_script_blob": "eda31eafd3d9469e6b8daa17155e2bce5b034026",
+    "unpack_script_blob": "52ec29682529db4fbc76ab2d4c59070b97dcd086"
   },
-  "new_candidate_corpus": {
-    "repository": "reppiks490/Icarus-engine",
-    "status": "CANDIDATE_NEW_UNRECONCILED_WITH_542_SHA_SET",
-    "files": [
-      {
-        "path": "data/mnq_5m_full.csv",
-        "size_bytes": 9266088,
-        "git_blob_sha": "76a4a3fe8c3085809855a725af587592480c42de",
-        "representation": "corrected full-session derived continuous MNQ",
-        "body_parse_status": "blocked_by_connector_size_limit"
-      },
-      {
-        "path": "data/mnq_10m_full.csv",
-        "size_bytes": 4653836,
-        "git_blob_sha": "b10cd883b99570f552bcc0807077e06b4c0ba5c8",
-        "representation": "corrected full-session derived continuous MNQ",
-        "body_parse_status": "blocked_by_connector_size_limit"
-      },
-      {
-        "path": "data/mnq_20m_full.csv",
-        "size_bytes": 2336132,
-        "git_blob_sha": "e4233d6d27cceacf77191ed9d76cb37226b566ba",
-        "representation": "corrected full-session derived continuous MNQ",
-        "body_parse_status": "blocked_by_connector_size_limit"
-      },
-      {
-        "path": "data/mnq_30m_full.csv",
-        "size_bytes": 1562706,
-        "git_blob_sha": "1d9cbf1212e2f3e976cf5032cfc974107118c1ce",
-        "representation": "corrected full-session derived continuous MNQ",
-        "body_parse_status": "blocked_by_connector_size_limit"
-      },
-      {
-        "path": "data/mnq_20m.csv",
-        "size_bytes": 1021411,
-        "git_blob_sha": "3d62ac3e74ca954e984dd60823aba3730c983e22",
-        "representation": "legacy session-only MNQ build",
-        "logical_rows": 15298,
-        "header": [
-          "ts",
-          "open",
-          "high",
-          "low",
-          "close",
-          "volume"
-        ],
-        "first_ts": "2024-09-20T09:50:00+00:00",
-        "last_ts": "2026-09-18T19:30:00+00:00",
-        "duplicate_ts": 0
-      },
-      {
-        "path": "data/mnq_20m_packed.txt",
-        "size_bytes": 296037,
-        "git_blob_sha": "78a76e5a9babf05c80965128e353bfbb3f1f93c0",
-        "representation": "packed legacy session-only 20m tape",
-        "sessions": 516,
-        "total_declared_bars": 15298,
-        "min_bars_per_session": 12,
-        "max_bars_per_session": 30,
-        "first_session": "2024-09-20",
-        "last_session": "2026-09-18"
-      }
-    ],
-    "corrected_full_csv_bytes": 17818762,
-    "all_csv_bytes_including_legacy": 18840173,
-    "all_data_bytes_including_packed": 19136210
-  },
-  "provenance": {
-    "vendor_family": "Massive Futures Aggregate Bars",
-    "endpoint": "GET /futures/v1/aggs/{ticker}",
-    "builder_source_glob": "/root/.claude/projects/*/*/tool-results/mcp-Massive-call_api-*.txt",
-    "source_fields_consumed": [
-      "ticker",
-      "window_start",
-      "open",
-      "high",
-      "low",
-      "close",
-      "volume"
-    ],
-    "vendor_semantics": "Aggregate-bars documentation states bars are built from trades and an interval with no trades has no bar.",
-    "transformed_output_schema": [
-      "ts",
-      "open",
-      "high",
-      "low",
-      "close",
-      "volume"
-    ],
-    "timestamp_semantics": "build_mnq.py anchors buckets to 18:00 ET and writes UTC bar-close timestamps",
-    "roll_method": "repository-defined standard roll at second Thursday of expiry month",
-    "contracts": [
-      [
-        "MNQZ4",
-        "2024-09-20",
-        "2024-12-12"
+  "new_evidence": {
+    "corrected_full_csv_parse": {
+      "schema": [
+        "ts",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
       ],
-      [
-        "MNQH5",
-        "2024-12-12",
-        "2025-03-13"
-      ],
-      [
-        "MNQM5",
-        "2025-03-13",
-        "2025-06-12"
-      ],
-      [
-        "MNQU5",
-        "2025-06-12",
-        "2025-09-11"
-      ],
-      [
-        "MNQZ5",
-        "2025-09-11",
-        "2025-12-11"
-      ],
-      [
-        "MNQH6",
-        "2025-12-11",
-        "2026-03-12"
-      ],
-      [
-        "MNQM6",
-        "2026-03-12",
-        "2026-06-11"
-      ],
-      [
-        "MNQU6",
-        "2026-06-11",
-        "2026-09-10"
-      ],
-      [
-        "MNQZ6",
-        "2026-09-10",
-        "2026-09-19"
+      "files": [
+        {
+          "path": "data/mnq_5m_full.csv",
+          "git_blob_sha": "76a4a3fe8c3085809855a725af587592480c42de",
+          "rows": 140609,
+          "first_ts": "2024-09-20T04:05:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "duplicate_timestamps": 0,
+          "non_monotonic_steps": 0,
+          "bad_column_rows": 0
+        },
+        {
+          "path": "data/mnq_10m_full.csv",
+          "git_blob_sha": "b10cd883b99570f552bcc0807077e06b4c0ba5c8",
+          "rows": 70312,
+          "first_ts": "2024-09-20T04:10:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "duplicate_timestamps": 0,
+          "non_monotonic_steps": 0,
+          "bad_column_rows": 0
+        },
+        {
+          "path": "data/mnq_20m_full.csv",
+          "git_blob_sha": "e4233d6d27cceacf77191ed9d76cb37226b566ba",
+          "rows": 35161,
+          "first_ts": "2024-09-20T04:20:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "duplicate_timestamps": 0,
+          "non_monotonic_steps": 0,
+          "bad_column_rows": 0
+        },
+        {
+          "path": "data/mnq_30m_full.csv",
+          "git_blob_sha": "1d9cbf1212e2f3e976cf5032cfc974107118c1ce",
+          "rows": 23445,
+          "first_ts": "2024-09-20T04:30:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "duplicate_timestamps": 0,
+          "non_monotonic_steps": 0,
+          "bad_column_rows": 0
+        }
       ]
-    ],
-    "massive_contract_reference": {
-      "product_code": "MNQ",
-      "trading_venue": "XCME",
-      "trade_tick_size": 0.25,
-      "verified_on_multiple_contracts": true
     },
-    "cme_reference": {
-      "source": "CME Group Micro E-mini Equity Index Futures FAQ / MNQ product page",
-      "product": "Micro E-mini Nasdaq-100 futures",
-      "code": "MNQ",
-      "contract_multiplier": "$2 x Nasdaq-100 Index",
-      "minimum_tick_points": 0.25,
-      "current_general_globex_hours": "Sunday-Friday 6:00 p.m.-5:00 p.m. ET",
-      "note": "CME FAQ also documents intraday halt/maintenance structure; exact historical per-date schedule should be sourced separately for continuity audits."
+    "deterministic_representation_lineage": {
+      "source_representation": "data/mnq_5m_full.csv",
+      "tests": [
+        {
+          "derived": "data/mnq_10m_full.csv",
+          "derived_rows": 70312,
+          "matched_rows": 70312,
+          "missing": 0,
+          "mismatch": 0,
+          "status": "EXACT_NUMERIC_RESAMPLE"
+        },
+        {
+          "derived": "data/mnq_20m_full.csv",
+          "derived_rows": 35161,
+          "matched_rows": 35161,
+          "missing": 0,
+          "mismatch": 0,
+          "status": "EXACT_NUMERIC_RESAMPLE"
+        },
+        {
+          "derived": "data/mnq_30m_full.csv",
+          "derived_rows": 23445,
+          "matched_rows": 23445,
+          "missing": 0,
+          "mismatch": 0,
+          "status": "EXACT_NUMERIC_RESAMPLE"
+        }
+      ],
+      "interpretation": "10m/20m-full/30m-full add deterministic timeframe representations of the 5m continuous MNQ tape, not independent underlying observations."
+    },
+    "legacy_20m_lineage": {
+      "packed_source": "data/mnq_20m_packed.txt",
+      "packed_sessions": 516,
+      "decoded_rows": 15298,
+      "csv_rows": 15298,
+      "numeric_exact_rows": 15298,
+      "mismatches": 0,
+      "first_ts": "2024-09-20T09:50:00+00:00",
+      "last_ts": "2026-09-18T19:30:00+00:00",
+      "interpretation": "data/mnq_20m.csv is a lossless decode of the packed session-only vendor tape."
+    },
+    "legacy_vs_full_relation": {
+      "test": "20-minute resample of full 5m tape with +10-minute bucket offset",
+      "legacy_rows": 15298,
+      "exact_rows": 15263,
+      "missing_rows": 14,
+      "mismatched_rows": 21,
+      "interpretation": "legacy 20m mostly overlaps the same market tape but is not identical to a simple filtered/resampled full tape; preserve as separate physical/provenance representation."
+    },
+    "provenance_refinement": {
+      "full_tape_builder": "tools/build_mnq.py",
+      "source_spill_pattern": "/root/.claude/projects/*/*/tool-results/mcp-Massive-call_api-*.txt",
+      "source_family": "Massive contract-specific MNQ aggregate bars",
+      "continuous_roll_contracts": [
+        "MNQZ4",
+        "MNQH5",
+        "MNQM5",
+        "MNQU5",
+        "MNQZ5",
+        "MNQH6",
+        "MNQM6",
+        "MNQU6",
+        "MNQZ6"
+      ],
+      "bar_anchor": "18:00 ET CME session open",
+      "timestamp_semantics": "UTC bar-close timestamp",
+      "legacy_packed_session_start": "05:30 ET",
+      "legacy_packed_bar_minutes": 20
     }
   },
-  "representation_reconciliation": {
-    "legacy_20m_session_only": {
-      "directly_parsed": true,
-      "logical_rows": 15298,
-      "sessions_in_packed_source": 516,
-      "count_alignment_with_packed": true,
-      "first_close_ts_utc": "2024-09-20T09:50:00+00:00",
-      "first_open_context": "05:30 ET session-only profile, consistent with first close at 05:50 ET",
-      "canonical_for_full_market_tape": false
-    },
-    "corrected_full_tape": {
-      "directly_parsed_large_csvs": false,
-      "author_reported_in_commit": {
-        "full_20m_transitions": 35160,
-        "single_tick_transitions": 34626,
-        "remaining_real_halt_weekend_transitions": 534,
-        "inferred_bar_count_from_transition_count": 35161
-      },
-      "status": "repository-supported but large-file row count not independently re-parsed in this runtime"
-    }
-  },
-  "baseline_comparison": {
-    "existing_authoritative_zip_baseline": {
+  "baseline_reconciliation": {
+    "existing_zip_corpus": {
       "physical_csv_members": 659,
       "logical_rows": 13788256,
       "distinct_sha256_contents": 542,
       "extracted_physical_files": 803
     },
-    "mnq_name_found_in_baseline_summary_docs": false,
-    "hash_overlap_test": "NOT_POSSIBLE_WITHOUT_MEMBER_HASH_MANIFEST_OR_BINARY_ARCHIVES",
-    "count_into_baseline": false,
-    "reason": "No member-level SHA-256 comparison has been performed; absence of MNQ names in summary docs is insufficient proof of novelty."
+    "original_materialized_nexus_symbols_include": "NQ1! but no documented MNQ in summary",
+    "daedalus_six_roots_include_icarus_engine_mnq": false,
+    "byte_hash_overlap_with_542_set": "UNRESOLVED",
+    "classification": "DISTINCT_PROVENANCE_FAMILY_CANDIDATE; NOT YET COUNTED INTO 542 BASELINE"
   },
-  "failed_or_blocked_checks": [
-    {
-      "check": "large corrected CSV body parsing",
-      "reason": "GitHub connector content-size limit; raw Browser path cache miss"
-    },
-    {
-      "check": "binary archive/member hash overlap",
-      "reason": "original ten-ZIP member manifest is locally generated/ignored and raw ZIP binary download path remained blocked"
-    },
-    {
-      "check": "Massive source replay 2024-09-20/27",
-      "reason": "endpoint returned no records; subsequent requests hit current-plan rate limit; cause not proven"
-    },
-    {
-      "check": "current source retention inference",
-      "reason": "not enough evidence to distinguish retention, entitlement, or source availability"
-    }
-  ],
   "capabilities_used_successfully": [
     "Study mode guidance",
-    "Browser/web primary CME verification",
-    "Superpowers skill",
-    "GitHub read-only repository/commit/file inspection",
-    "Massive endpoint discovery",
-    "Massive point-in-time futures contract reference"
+    "GitHub authenticated API/tree/commit/blob reads",
+    "direct large text-blob structural parsing in connector runtime",
+    "private NEXUS/DAEDALUS/PARALLAX reconciliation evidence"
   ],
-  "materially_available_but_not_needed": [
-    "FMP",
-    "TickerLayer",
-    "Twelve Data",
-    "FactorWeave",
-    "Bybit",
-    "CoinGecko"
+  "relevant_unavailable_or_blocked": [
+    {
+      "capability": "Browser plugin",
+      "blocked_action": "explicit Browser-plugin invocation",
+      "reason": "plugin not exposed as callable connector in runtime"
+    },
+    {
+      "capability": "binary GitHub archive fetch",
+      "blocked_action": "direct member-level comparison of MNQ content against ten ZIP archives",
+      "reason": "GitHub fetch endpoint accepts UTF-8 text only for ZIP blob"
+    },
+    {
+      "capability": "numeric reasoning effort selector",
+      "blocked_action": "setting numeric maximum effort",
+      "reason": "control not exposed"
+    }
   ],
   "raw_owner_data_written": false,
   "downstream_modifications": [],
