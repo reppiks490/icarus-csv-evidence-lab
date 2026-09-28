@@ -1,0 +1,195 @@
+{
+  "schema_version": "advanced-csv-run-v1",
+  "run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-03",
+  "parent_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02",
+  "workstream": "Advanced CSV/NEXUS",
+  "trigger_type": "manual_continue",
+  "mode": "data_collection_only",
+  "superpowers_used": [
+    "using-superpowers",
+    "verification-before-completion"
+  ],
+  "source_snapshots": {
+    "icarus_engine_tree": "d6f1cd03d02e6fd3782a9100352e9e45c13002d0",
+    "data_tracking_commit": "dfce55097efbc200ce2a0664e34dd463fb3824b5",
+    "build_script_blob": "eda31eafd3d9469e6b8daa17155e2bce5b034026",
+    "prior_run": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02"
+  },
+  "new_evidence": {
+    "fresh_sha256_identity": {
+      "method": "SHA-256 recomputed over UTF-8/ASCII repository file bytes exposed by authenticated GitHub blob reads; implementation previously validated against SHA-256('abc') test vector in-session",
+      "files": [
+        {
+          "path": "data/mnq_5m_full.csv",
+          "bytes": 9266088,
+          "rows": 140609,
+          "sha256": "2fba11ce4e0a0297602630a8642ac1e67e3d59691beb22d4799d8842d945b486",
+          "first_ts": "2024-09-20T04:05:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            5,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40,
+            45,
+            50,
+            55
+          ]
+        },
+        {
+          "path": "data/mnq_10m_full.csv",
+          "bytes": 4653836,
+          "rows": 70312,
+          "sha256": "099c7d730f3a0c44d2a6940df9ee6ba7abc63ed4e711c8d52c658123083a6245",
+          "first_ts": "2024-09-20T04:10:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
+        },
+        {
+          "path": "data/mnq_20m.csv",
+          "bytes": 1021411,
+          "rows": 15298,
+          "sha256": "5b4f6d951dcc9a0666af3706e84080a54b6f60ab21caaf2cb776763d00615faf",
+          "first_ts": "2024-09-20T09:50:00+00:00",
+          "last_ts": "2026-09-18T19:30:00+00:00",
+          "utc_close_minutes": [
+            10,
+            30,
+            50
+          ]
+        },
+        {
+          "path": "data/mnq_20m_full.csv",
+          "bytes": 2336132,
+          "rows": 35161,
+          "sha256": "97df2ad2cfcc3fb26a1f1956dd8de50bcb3b966416ff09dd0fccda7293a04cfd",
+          "first_ts": "2024-09-20T04:20:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            20,
+            40
+          ]
+        },
+        {
+          "path": "data/mnq_30m_full.csv",
+          "bytes": 1562706,
+          "rows": 23445,
+          "sha256": "55c38b4aee327446bc247c040ade0f20d19cd711a573133dc02c9853096084c5",
+          "first_ts": "2024-09-20T04:30:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            30
+          ]
+        }
+      ],
+      "total_physical_files": 5,
+      "total_bytes": 18840173,
+      "total_rows_across_representations": 284825,
+      "unique_sha256_within_family": 5
+    },
+    "structural_validation": {
+      "schema": [
+        "ts",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ],
+      "duplicate_timestamps_across_each_file": 0,
+      "out_of_order_rows_across_each_file": 0,
+      "invalid_ohlc_rows_across_each_file": 0,
+      "off_quarter_tick_rows_across_each_file": 0,
+      "invalid_volume_rows_across_each_file": 0,
+      "note": "Non-contiguous nominal-step transitions remain present because futures sessions, maintenance windows, weekends and holidays create legitimate gaps; these counts are not labeled missing evidence without session-calendar reconciliation."
+    },
+    "continuity_transition_counts": {
+      "data/mnq_5m_full.csv": 539,
+      "data/mnq_10m_full.csv": 536,
+      "data/mnq_20m.csv": 515,
+      "data/mnq_20m_full.csv": 534,
+      "data/mnq_30m_full.csv": 532
+    },
+    "global_hash_reference_sweep": {
+      "repositories_scope": "GitHub repositories visible to connected account/code search",
+      "exact_sha256_matches_found": 0,
+      "hashes_tested": 5,
+      "interpretation": "No persisted code/text reference to these hashes was found. This does NOT prove absence from the intentionally off-Git 542-member SHA manifest."
+    },
+    "provenance_classification": {
+      "status": "PROVISIONAL_NEW_PROVENANCE_BRANCH_UNRECONCILED_WITH_OFF_GIT_542_HASH_SET",
+      "rationale": [
+        "Massive contract-specific MNQ aggregate-bar source family differs from the documented TradingView/chart-export provenance of the recovered 10-ZIP corpus.",
+        "Fresh SHA-256 values have no visible persisted hash reference.",
+        "The authoritative 542-member hash manifest is intentionally ignored by Git, so exact byte-set non-overlap cannot yet be proven."
+      ],
+      "count_into_existing_542_baseline": false
+    }
+  },
+  "inherited_verified_lineage": {
+    "full_tape_base": "data/mnq_5m_full.csv",
+    "exact_numeric_resamples": [
+      "data/mnq_10m_full.csv",
+      "data/mnq_20m_full.csv",
+      "data/mnq_30m_full.csv"
+    ],
+    "legacy_20m": "lossless decode of separate packed session-only vendor tape",
+    "source_family": "Massive contract-specific MNQ aggregate bars",
+    "contracts": [
+      "MNQZ4",
+      "MNQH5",
+      "MNQM5",
+      "MNQU5",
+      "MNQZ5",
+      "MNQH6",
+      "MNQM6",
+      "MNQU6",
+      "MNQZ6"
+    ],
+    "bar_anchor": "18:00 ET CME session open",
+    "timestamp_semantics": "UTC bar-close"
+  },
+  "capabilities_used_successfully": [
+    "Superpowers using-superpowers",
+    "Superpowers verification-before-completion",
+    "GitHub authenticated repository/tree/commit/blob reads",
+    "large UTF-8 Git blob retrieval",
+    "fresh SHA-256 and CSV structural validation in connector runtime",
+    "GitHub global exact-hash reference search",
+    "NEXUS/DAEDALUS/PARALLAX persisted audit evidence"
+  ],
+  "relevant_unavailable_or_blocked": [
+    {
+      "capability": "binary ZIP blob retrieval",
+      "blocked_action": "rebuild full 542-member hash set from ten ZIPs in this runtime",
+      "reason": "GitHub fetch rejects non-UTF-8 ZIP payloads"
+    },
+    {
+      "capability": "off-Git artifacts/parallax-ten-archives.json",
+      "blocked_action": "direct exact-set membership test for five MNQ hashes",
+      "reason": "manifest intentionally ignored by Git and not surfaced in Library search"
+    },
+    {
+      "capability": "numeric reasoning effort selector",
+      "blocked_action": "set numeric effort maximum",
+      "reason": "control not exposed"
+    }
+  ],
+  "raw_owner_data_written": false,
+  "downstream_modifications": [],
+  "execution_authorized": false
+}
