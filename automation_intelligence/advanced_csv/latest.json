@@ -1,18 +1,107 @@
 {
   "schema_version": "advanced-csv-run-v1",
-  "run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02",
-  "parent_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-01",
+  "run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-03",
+  "parent_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02",
   "workstream": "Advanced CSV/NEXUS",
   "trigger_type": "manual_continue",
   "mode": "data_collection_only",
+  "superpowers_used": [
+    "using-superpowers",
+    "verification-before-completion"
+  ],
   "source_snapshots": {
     "icarus_engine_tree": "d6f1cd03d02e6fd3782a9100352e9e45c13002d0",
     "data_tracking_commit": "dfce55097efbc200ce2a0664e34dd463fb3824b5",
     "build_script_blob": "eda31eafd3d9469e6b8daa17155e2bce5b034026",
-    "unpack_script_blob": "52ec29682529db4fbc76ab2d4c59070b97dcd086"
+    "prior_run": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-02"
   },
   "new_evidence": {
-    "corrected_full_csv_parse": {
+    "fresh_sha256_identity": {
+      "method": "SHA-256 recomputed over UTF-8/ASCII repository file bytes exposed by authenticated GitHub blob reads; implementation previously validated against SHA-256('abc') test vector in-session",
+      "files": [
+        {
+          "path": "data/mnq_5m_full.csv",
+          "bytes": 9266088,
+          "rows": 140609,
+          "sha256": "2fba11ce4e0a0297602630a8642ac1e67e3d59691beb22d4799d8842d945b486",
+          "first_ts": "2024-09-20T04:05:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            5,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40,
+            45,
+            50,
+            55
+          ]
+        },
+        {
+          "path": "data/mnq_10m_full.csv",
+          "bytes": 4653836,
+          "rows": 70312,
+          "sha256": "099c7d730f3a0c44d2a6940df9ee6ba7abc63ed4e711c8d52c658123083a6245",
+          "first_ts": "2024-09-20T04:10:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
+        },
+        {
+          "path": "data/mnq_20m.csv",
+          "bytes": 1021411,
+          "rows": 15298,
+          "sha256": "5b4f6d951dcc9a0666af3706e84080a54b6f60ab21caaf2cb776763d00615faf",
+          "first_ts": "2024-09-20T09:50:00+00:00",
+          "last_ts": "2026-09-18T19:30:00+00:00",
+          "utc_close_minutes": [
+            10,
+            30,
+            50
+          ]
+        },
+        {
+          "path": "data/mnq_20m_full.csv",
+          "bytes": 2336132,
+          "rows": 35161,
+          "sha256": "97df2ad2cfcc3fb26a1f1956dd8de50bcb3b966416ff09dd0fccda7293a04cfd",
+          "first_ts": "2024-09-20T04:20:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            20,
+            40
+          ]
+        },
+        {
+          "path": "data/mnq_30m_full.csv",
+          "bytes": 1562706,
+          "rows": 23445,
+          "sha256": "55c38b4aee327446bc247c040ade0f20d19cd711a573133dc02c9853096084c5",
+          "first_ts": "2024-09-20T04:30:00+00:00",
+          "last_ts": "2026-09-18T21:00:00+00:00",
+          "utc_close_minutes": [
+            0,
+            30
+          ]
+        }
+      ],
+      "total_physical_files": 5,
+      "total_bytes": 18840173,
+      "total_rows_across_representations": 284825,
+      "unique_sha256_within_family": 5
+    },
+    "structural_validation": {
       "schema": [
         "ts",
         "open",
@@ -21,151 +110,82 @@
         "close",
         "volume"
       ],
-      "files": [
-        {
-          "path": "data/mnq_5m_full.csv",
-          "git_blob_sha": "76a4a3fe8c3085809855a725af587592480c42de",
-          "rows": 140609,
-          "first_ts": "2024-09-20T04:05:00+00:00",
-          "last_ts": "2026-09-18T21:00:00+00:00",
-          "duplicate_timestamps": 0,
-          "non_monotonic_steps": 0,
-          "bad_column_rows": 0
-        },
-        {
-          "path": "data/mnq_10m_full.csv",
-          "git_blob_sha": "b10cd883b99570f552bcc0807077e06b4c0ba5c8",
-          "rows": 70312,
-          "first_ts": "2024-09-20T04:10:00+00:00",
-          "last_ts": "2026-09-18T21:00:00+00:00",
-          "duplicate_timestamps": 0,
-          "non_monotonic_steps": 0,
-          "bad_column_rows": 0
-        },
-        {
-          "path": "data/mnq_20m_full.csv",
-          "git_blob_sha": "e4233d6d27cceacf77191ed9d76cb37226b566ba",
-          "rows": 35161,
-          "first_ts": "2024-09-20T04:20:00+00:00",
-          "last_ts": "2026-09-18T21:00:00+00:00",
-          "duplicate_timestamps": 0,
-          "non_monotonic_steps": 0,
-          "bad_column_rows": 0
-        },
-        {
-          "path": "data/mnq_30m_full.csv",
-          "git_blob_sha": "1d9cbf1212e2f3e976cf5032cfc974107118c1ce",
-          "rows": 23445,
-          "first_ts": "2024-09-20T04:30:00+00:00",
-          "last_ts": "2026-09-18T21:00:00+00:00",
-          "duplicate_timestamps": 0,
-          "non_monotonic_steps": 0,
-          "bad_column_rows": 0
-        }
-      ]
+      "duplicate_timestamps_across_each_file": 0,
+      "out_of_order_rows_across_each_file": 0,
+      "invalid_ohlc_rows_across_each_file": 0,
+      "off_quarter_tick_rows_across_each_file": 0,
+      "invalid_volume_rows_across_each_file": 0,
+      "note": "Non-contiguous nominal-step transitions remain present because futures sessions, maintenance windows, weekends and holidays create legitimate gaps; these counts are not labeled missing evidence without session-calendar reconciliation."
     },
-    "deterministic_representation_lineage": {
-      "source_representation": "data/mnq_5m_full.csv",
-      "tests": [
-        {
-          "derived": "data/mnq_10m_full.csv",
-          "derived_rows": 70312,
-          "matched_rows": 70312,
-          "missing": 0,
-          "mismatch": 0,
-          "status": "EXACT_NUMERIC_RESAMPLE"
-        },
-        {
-          "derived": "data/mnq_20m_full.csv",
-          "derived_rows": 35161,
-          "matched_rows": 35161,
-          "missing": 0,
-          "mismatch": 0,
-          "status": "EXACT_NUMERIC_RESAMPLE"
-        },
-        {
-          "derived": "data/mnq_30m_full.csv",
-          "derived_rows": 23445,
-          "matched_rows": 23445,
-          "missing": 0,
-          "mismatch": 0,
-          "status": "EXACT_NUMERIC_RESAMPLE"
-        }
+    "continuity_transition_counts": {
+      "data/mnq_5m_full.csv": 539,
+      "data/mnq_10m_full.csv": 536,
+      "data/mnq_20m.csv": 515,
+      "data/mnq_20m_full.csv": 534,
+      "data/mnq_30m_full.csv": 532
+    },
+    "global_hash_reference_sweep": {
+      "repositories_scope": "GitHub repositories visible to connected account/code search",
+      "exact_sha256_matches_found": 0,
+      "hashes_tested": 5,
+      "interpretation": "No persisted code/text reference to these hashes was found. This does NOT prove absence from the intentionally off-Git 542-member SHA manifest."
+    },
+    "provenance_classification": {
+      "status": "PROVISIONAL_NEW_PROVENANCE_BRANCH_UNRECONCILED_WITH_OFF_GIT_542_HASH_SET",
+      "rationale": [
+        "Massive contract-specific MNQ aggregate-bar source family differs from the documented TradingView/chart-export provenance of the recovered 10-ZIP corpus.",
+        "Fresh SHA-256 values have no visible persisted hash reference.",
+        "The authoritative 542-member hash manifest is intentionally ignored by Git, so exact byte-set non-overlap cannot yet be proven."
       ],
-      "interpretation": "10m/20m-full/30m-full add deterministic timeframe representations of the 5m continuous MNQ tape, not independent underlying observations."
-    },
-    "legacy_20m_lineage": {
-      "packed_source": "data/mnq_20m_packed.txt",
-      "packed_sessions": 516,
-      "decoded_rows": 15298,
-      "csv_rows": 15298,
-      "numeric_exact_rows": 15298,
-      "mismatches": 0,
-      "first_ts": "2024-09-20T09:50:00+00:00",
-      "last_ts": "2026-09-18T19:30:00+00:00",
-      "interpretation": "data/mnq_20m.csv is a lossless decode of the packed session-only vendor tape."
-    },
-    "legacy_vs_full_relation": {
-      "test": "20-minute resample of full 5m tape with +10-minute bucket offset",
-      "legacy_rows": 15298,
-      "exact_rows": 15263,
-      "missing_rows": 14,
-      "mismatched_rows": 21,
-      "interpretation": "legacy 20m mostly overlaps the same market tape but is not identical to a simple filtered/resampled full tape; preserve as separate physical/provenance representation."
-    },
-    "provenance_refinement": {
-      "full_tape_builder": "tools/build_mnq.py",
-      "source_spill_pattern": "/root/.claude/projects/*/*/tool-results/mcp-Massive-call_api-*.txt",
-      "source_family": "Massive contract-specific MNQ aggregate bars",
-      "continuous_roll_contracts": [
-        "MNQZ4",
-        "MNQH5",
-        "MNQM5",
-        "MNQU5",
-        "MNQZ5",
-        "MNQH6",
-        "MNQM6",
-        "MNQU6",
-        "MNQZ6"
-      ],
-      "bar_anchor": "18:00 ET CME session open",
-      "timestamp_semantics": "UTC bar-close timestamp",
-      "legacy_packed_session_start": "05:30 ET",
-      "legacy_packed_bar_minutes": 20
+      "count_into_existing_542_baseline": false
     }
   },
-  "baseline_reconciliation": {
-    "existing_zip_corpus": {
-      "physical_csv_members": 659,
-      "logical_rows": 13788256,
-      "distinct_sha256_contents": 542,
-      "extracted_physical_files": 803
-    },
-    "original_materialized_nexus_symbols_include": "NQ1! but no documented MNQ in summary",
-    "daedalus_six_roots_include_icarus_engine_mnq": false,
-    "byte_hash_overlap_with_542_set": "UNRESOLVED",
-    "classification": "DISTINCT_PROVENANCE_FAMILY_CANDIDATE; NOT YET COUNTED INTO 542 BASELINE"
+  "inherited_verified_lineage": {
+    "full_tape_base": "data/mnq_5m_full.csv",
+    "exact_numeric_resamples": [
+      "data/mnq_10m_full.csv",
+      "data/mnq_20m_full.csv",
+      "data/mnq_30m_full.csv"
+    ],
+    "legacy_20m": "lossless decode of separate packed session-only vendor tape",
+    "source_family": "Massive contract-specific MNQ aggregate bars",
+    "contracts": [
+      "MNQZ4",
+      "MNQH5",
+      "MNQM5",
+      "MNQU5",
+      "MNQZ5",
+      "MNQH6",
+      "MNQM6",
+      "MNQU6",
+      "MNQZ6"
+    ],
+    "bar_anchor": "18:00 ET CME session open",
+    "timestamp_semantics": "UTC bar-close"
   },
   "capabilities_used_successfully": [
-    "Study mode guidance",
-    "GitHub authenticated API/tree/commit/blob reads",
-    "direct large text-blob structural parsing in connector runtime",
-    "private NEXUS/DAEDALUS/PARALLAX reconciliation evidence"
+    "Superpowers using-superpowers",
+    "Superpowers verification-before-completion",
+    "GitHub authenticated repository/tree/commit/blob reads",
+    "large UTF-8 Git blob retrieval",
+    "fresh SHA-256 and CSV structural validation in connector runtime",
+    "GitHub global exact-hash reference search",
+    "NEXUS/DAEDALUS/PARALLAX persisted audit evidence"
   ],
   "relevant_unavailable_or_blocked": [
     {
-      "capability": "Browser plugin",
-      "blocked_action": "explicit Browser-plugin invocation",
-      "reason": "plugin not exposed as callable connector in runtime"
+      "capability": "binary ZIP blob retrieval",
+      "blocked_action": "rebuild full 542-member hash set from ten ZIPs in this runtime",
+      "reason": "GitHub fetch rejects non-UTF-8 ZIP payloads"
     },
     {
-      "capability": "binary GitHub archive fetch",
-      "blocked_action": "direct member-level comparison of MNQ content against ten ZIP archives",
-      "reason": "GitHub fetch endpoint accepts UTF-8 text only for ZIP blob"
+      "capability": "off-Git artifacts/parallax-ten-archives.json",
+      "blocked_action": "direct exact-set membership test for five MNQ hashes",
+      "reason": "manifest intentionally ignored by Git and not surfaced in Library search"
     },
     {
       "capability": "numeric reasoning effort selector",
-      "blocked_action": "setting numeric maximum effort",
+      "blocked_action": "set numeric effort maximum",
       "reason": "control not exposed"
     }
   ],
