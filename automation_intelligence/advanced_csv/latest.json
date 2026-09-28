@@ -1,186 +1,236 @@
 {
-  "run_id": "ADVCSV-NEXUS-20260928T1636Z-MANUAL-CONTINUE",
+  "schema_version": "advanced-csv-run-v1",
+  "run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-01",
   "workstream": "Advanced CSV/NEXUS",
+  "trigger_type": "manual_continue",
   "mode": "data_collection_only",
-  "started_from": "manual Continue",
   "source_snapshots": {
-    "multi_level_csv_main_tree": "ce82124352762c14eb33836a5c894bc3a2a71dfe",
-    "csv_data_multi_chart_type_main_tree": "a482e7d1801fa7fa5aec093960097c0051c0403c",
-    "aion_parallax_research_main_tree": "12a7cb8ef99e84ce50b766db0aea1592b3906f80",
-    "icarus_csv_evidence_lab_latest_seen_commit": "854e3924aa3fb6ccd0398debe4738fbae4dcd68b"
+    "icarus_engine_tree": "d6f1cd03d02e6fd3782a9100352e9e45c13002d0",
+    "real_mnq_build_commit": "f36208a26668f46ae5c4699ee82ad1bc2a0577a5",
+    "data_tracking_commit": "dfce55097efbc200ce2a0664e34dd463fb3824b5"
   },
-  "compressed_archive_bytes": {
-    "multi_level_csv_9_zips": 155204464,
-    "csv_indexes_zip": 22604400,
-    "combined_10_zips": 177808864
+  "new_candidate_corpus": {
+    "repository": "reppiks490/Icarus-engine",
+    "status": "CANDIDATE_NEW_UNRECONCILED_WITH_542_SHA_SET",
+    "files": [
+      {
+        "path": "data/mnq_5m_full.csv",
+        "size_bytes": 9266088,
+        "git_blob_sha": "76a4a3fe8c3085809855a725af587592480c42de",
+        "representation": "corrected full-session derived continuous MNQ",
+        "body_parse_status": "blocked_by_connector_size_limit"
+      },
+      {
+        "path": "data/mnq_10m_full.csv",
+        "size_bytes": 4653836,
+        "git_blob_sha": "b10cd883b99570f552bcc0807077e06b4c0ba5c8",
+        "representation": "corrected full-session derived continuous MNQ",
+        "body_parse_status": "blocked_by_connector_size_limit"
+      },
+      {
+        "path": "data/mnq_20m_full.csv",
+        "size_bytes": 2336132,
+        "git_blob_sha": "e4233d6d27cceacf77191ed9d76cb37226b566ba",
+        "representation": "corrected full-session derived continuous MNQ",
+        "body_parse_status": "blocked_by_connector_size_limit"
+      },
+      {
+        "path": "data/mnq_30m_full.csv",
+        "size_bytes": 1562706,
+        "git_blob_sha": "1d9cbf1212e2f3e976cf5032cfc974107118c1ce",
+        "representation": "corrected full-session derived continuous MNQ",
+        "body_parse_status": "blocked_by_connector_size_limit"
+      },
+      {
+        "path": "data/mnq_20m.csv",
+        "size_bytes": 1021411,
+        "git_blob_sha": "3d62ac3e74ca954e984dd60823aba3730c983e22",
+        "representation": "legacy session-only MNQ build",
+        "logical_rows": 15298,
+        "header": [
+          "ts",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume"
+        ],
+        "first_ts": "2024-09-20T09:50:00+00:00",
+        "last_ts": "2026-09-18T19:30:00+00:00",
+        "duplicate_ts": 0
+      },
+      {
+        "path": "data/mnq_20m_packed.txt",
+        "size_bytes": 296037,
+        "git_blob_sha": "78a76e5a9babf05c80965128e353bfbb3f1f93c0",
+        "representation": "packed legacy session-only 20m tape",
+        "sessions": 516,
+        "total_declared_bars": 15298,
+        "min_bars_per_session": 12,
+        "max_bars_per_session": 30,
+        "first_session": "2024-09-20",
+        "last_session": "2026-09-18"
+      }
+    ],
+    "corrected_full_csv_bytes": 17818762,
+    "all_csv_bytes_including_legacy": 18840173,
+    "all_data_bytes_including_packed": 19136210
   },
-  "reconciled_physical_corpus": {
-    "zip_csv_members": 659,
-    "parsed_zip_members": 659,
-    "distinct_member_sha256_contents": 542,
-    "members_in_exact_byte_duplicate_groups": 230,
-    "members_with_repeated_raw_header_names": 183,
-    "logical_data_rows": 13788256,
-    "nine_multi_level_csv_members": 626,
-    "nine_multi_level_csv_rows": 12588916,
-    "index_zip_members": 33,
-    "index_zip_rows": 1199340,
-    "extracted_physical_files": 803,
-    "extracted_distinct_sha256_contents": 542,
-    "zip_only_sha256_contents": 0,
-    "extracted_only_sha256_contents": 0,
-    "extra_downloads_csv_root_files": 144,
-    "extra_root_unique_new_contents": 0
-  },
-  "subcorpus_reconciliation": {
-    "six_equity_candidate_batches_csvs": 177,
-    "six_equity_candidate_batches_filename_overlap": 0,
-    "three_older_multi_level_archives_members_derived": 449,
-    "derivation": "626 nine-archive members minus 177 documented equity-candidate CSVs",
-    "candidate_schema": [
-      "time",
+  "provenance": {
+    "vendor_family": "Massive Futures Aggregate Bars",
+    "endpoint": "GET /futures/v1/aggs/{ticker}",
+    "builder_source_glob": "/root/.claude/projects/*/*/tool-results/mcp-Massive-call_api-*.txt",
+    "source_fields_consumed": [
+      "ticker",
+      "window_start",
       "open",
       "high",
       "low",
       "close",
-      "RATE ST",
-      "MP POC",
-      "MP VAH",
-      "MP VAL",
-      "Long",
-      "Short",
-      "TIDE Long",
-      "TIDE Short",
-      "L_TP*",
-      "S_TP*",
-      "SL"
+      "volume"
     ],
-    "candidate_semantics": "documented stock candle + Tide overlay; not NQ futures execution tape"
-  },
-  "archive_inventory": [
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "Full csv candles only.zip",
-      "size_bytes": 18951749,
-      "git_blob_sha": "0087eb2f10deb91bc54bb8de0bf331c59a5735ba",
-      "uploaded_at": "2026-09-21T23:36:39Z"
+    "vendor_semantics": "Aggregate-bars documentation states bars are built from trades and an interval with no trades has no bar.",
+    "transformed_output_schema": [
+      "ts",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "timestamp_semantics": "build_mnq.py anchors buckets to 18:00 ET and writes UTC bar-close timestamps",
+    "roll_method": "repository-defined standard roll at second Thursday of expiry month",
+    "contracts": [
+      [
+        "MNQZ4",
+        "2024-09-20",
+        "2024-12-12"
+      ],
+      [
+        "MNQH5",
+        "2024-12-12",
+        "2025-03-13"
+      ],
+      [
+        "MNQM5",
+        "2025-03-13",
+        "2025-06-12"
+      ],
+      [
+        "MNQU5",
+        "2025-06-12",
+        "2025-09-11"
+      ],
+      [
+        "MNQZ5",
+        "2025-09-11",
+        "2025-12-11"
+      ],
+      [
+        "MNQH6",
+        "2025-12-11",
+        "2026-03-12"
+      ],
+      [
+        "MNQM6",
+        "2026-03-12",
+        "2026-06-11"
+      ],
+      [
+        "MNQU6",
+        "2026-06-11",
+        "2026-09-10"
+      ],
+      [
+        "MNQZ6",
+        "2026-09-10",
+        "2026-09-19"
+      ]
+    ],
+    "massive_contract_reference": {
+      "product_code": "MNQ",
+      "trading_venue": "XCME",
+      "trade_tick_size": 0.25,
+      "verified_on_multiple_contracts": true
     },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "Csv files for different chart types.zip",
-      "size_bytes": 26153017,
-      "git_blob_sha": "94b377074a81e7467cb26ca1ec652f86a65e2df5",
-      "uploaded_at": "2026-09-22T02:46:10Z"
-    },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "More csv by ticks with chart candle and volume profiles technicals built in.zip",
-      "size_bytes": 18131905,
-      "git_blob_sha": "e2a40c397aedd673907d73477420e732c644cee2",
-      "uploaded_at": "2026-09-22T07:01:11Z"
-    },
-    {
-      "repo": "reppiks490/csv-data-multi-chart-type",
-      "name": "Csv indexes.zip",
-      "size_bytes": 22604400,
-      "git_blob_sha": "d942436acbaa0a31a2b96edc01cb89848dceb106",
-      "uploaded_at": "2026-09-22T14:34:51Z"
-    },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "Csv last 57.zip",
-      "size_bytes": 16835634,
-      "git_blob_sha": "f49bf59e30ca8ff69a41b96fc4d1ecd4157d9c61",
-      "uploaded_at": "2026-09-22T17:32:56Z",
-      "documented_csv_members": 29
-    },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "Last 57 half.zip",
-      "size_bytes": 15881408,
-      "git_blob_sha": "9093b3b43721f5d38c4451c0897e992b0deb0937",
-      "uploaded_at": "2026-09-22T17:36:25Z",
-      "documented_csv_members": 28
-    },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "Csv 2nd 60.zip",
-      "size_bytes": 12570115,
-      "git_blob_sha": "56543584b2b76d60e9bd6cd1973b996462296962",
-      "uploaded_at": "2026-09-22T17:39:22Z",
-      "documented_csv_members": 30
-    },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "2nd 60 half.zip",
-      "size_bytes": 15069194,
-      "git_blob_sha": "555e56b05e8b43605cb44c4949c131af2c7ba5d3",
-      "uploaded_at": "2026-09-22T17:42:24Z",
-      "documented_csv_members": 30
-    },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "Csv first 60.zip",
-      "size_bytes": 14603246,
-      "git_blob_sha": "f0bf8f4ee7cfcd8fa30988ff8d577d91cb260acc",
-      "uploaded_at": "2026-09-22T17:44:46Z",
-      "documented_csv_members": 30
-    },
-    {
-      "repo": "reppiks490/multi-level-csv",
-      "name": "First 60 half.zip",
-      "size_bytes": 17008196,
-      "git_blob_sha": "d1418e52c0c694d60b6cfc690a73047325b76705",
-      "uploaded_at": "2026-09-22T17:48:13Z",
-      "documented_csv_members": 30
+    "cme_reference": {
+      "source": "CME Group Micro E-mini Equity Index Futures FAQ / MNQ product page",
+      "product": "Micro E-mini Nasdaq-100 futures",
+      "code": "MNQ",
+      "contract_multiplier": "$2 x Nasdaq-100 Index",
+      "minimum_tick_points": 0.25,
+      "current_general_globex_hours": "Sunday-Friday 6:00 p.m.-5:00 p.m. ET",
+      "note": "CME FAQ also documents intraday halt/maintenance structure; exact historical per-date schedule should be sourced separately for continuity audits."
     }
-  ],
-  "lineage_findings": [
-    "PARALLAX reconciliation explicitly states it scanned the nine ZIPs in the local multi-level-csv checkout plus separate Csv indexes.zip.",
-    "DAEDALUS extracted six-root catalog and the ten-ZIP corpus have identical sets of 542 distinct SHA-256 contents.",
-    "All 144 files in the extra Downloads/Csv root are byte-content duplicates of files in other extracted roots.",
-    "Earlier approximate row total 13,787,630 differs from 13,788,256 by 626; cause remains unproven and must not be silently normalized.",
-    "Git blob SHAs recorded above are Git object identifiers, not substitutes for archive SHA-256."
-  ],
-  "validation": {
-    "archive_identity_to_prior_9_plus_1_checkpoint": "verified_by_private_PARALLAX_documentation",
-    "member_level_sha256_set": "verified_by_prior_local_PARALLAX_scan",
-    "new_runtime_archive_sha256_recomputation": "blocked",
-    "new_runtime_member_enumeration_from_binary_zips": "blocked",
-    "source_identity_market_semantics": "not_verified_per_member",
-    "point_in_time_availability": "not_verified_per_member",
-    "execution_authorized": false
   },
-  "blocked": [
+  "representation_reconciliation": {
+    "legacy_20m_session_only": {
+      "directly_parsed": true,
+      "logical_rows": 15298,
+      "sessions_in_packed_source": 516,
+      "count_alignment_with_packed": true,
+      "first_close_ts_utc": "2024-09-20T09:50:00+00:00",
+      "first_open_context": "05:30 ET session-only profile, consistent with first close at 05:50 ET",
+      "canonical_for_full_market_tape": false
+    },
+    "corrected_full_tape": {
+      "directly_parsed_large_csvs": false,
+      "author_reported_in_commit": {
+        "full_20m_transitions": 35160,
+        "single_tick_transitions": 34626,
+        "remaining_real_halt_weekend_transitions": 534,
+        "inferred_bar_count_from_transition_count": 35161
+      },
+      "status": "repository-supported but large-file row count not independently re-parsed in this runtime"
+    }
+  },
+  "baseline_comparison": {
+    "existing_authoritative_zip_baseline": {
+      "physical_csv_members": 659,
+      "logical_rows": 13788256,
+      "distinct_sha256_contents": 542,
+      "extracted_physical_files": 803
+    },
+    "mnq_name_found_in_baseline_summary_docs": false,
+    "hash_overlap_test": "NOT_POSSIBLE_WITHOUT_MEMBER_HASH_MANIFEST_OR_BINARY_ARCHIVES",
+    "count_into_baseline": false,
+    "reason": "No member-level SHA-256 comparison has been performed; absence of MNQ names in summary docs is insufficient proof of novelty."
+  },
+  "failed_or_blocked_checks": [
     {
-      "capability": "analysis container outbound DNS",
-      "action_blocked": "direct raw GitHub ZIP download and local SHA-256/ZIP enumeration",
-      "evidence": "raw.githubusercontent.com name resolution failure"
+      "check": "large corrected CSV body parsing",
+      "reason": "GitHub connector content-size limit; raw Browser path cache miss"
     },
     {
-      "capability": "GitHub binary blob fetch",
-      "action_blocked": "binary ZIP extraction through connector",
-      "evidence": "UTF-8 decode failure on ZIP blob"
+      "check": "binary archive/member hash overlap",
+      "reason": "original ten-ZIP member manifest is locally generated/ignored and raw ZIP binary download path remained blocked"
     },
     {
-      "capability": "numeric reasoning-effort control",
-      "action_blocked": "setting a numeric maximum effort value",
-      "evidence": "control not exposed"
+      "check": "Massive source replay 2024-09-20/27",
+      "reason": "endpoint returned no records; subsequent requests hit current-plan rate limit; cause not proven"
+    },
+    {
+      "check": "current source retention inference",
+      "reason": "not enough evidence to distinguish retention, entitlement, or source availability"
     }
   ],
   "capabilities_used_successfully": [
+    "Study mode guidance",
+    "Browser/web primary CME verification",
     "Superpowers skill",
-    "GitHub repository/commit/tree/file reads",
-    "ChatGPT Files/Library search",
-    "private AION/PARALLAX reconciliation evidence"
+    "GitHub read-only repository/commit/file inspection",
+    "Massive endpoint discovery",
+    "Massive point-in-time futures contract reference"
   ],
-  "capabilities_not_invoked_because_not_material": [
+  "materially_available_but_not_needed": [
     "FMP",
-    "Massive",
     "TickerLayer",
     "Twelve Data",
-    "FactorWeave"
+    "FactorWeave",
+    "Bybit",
+    "CoinGecko"
   ],
+  "raw_owner_data_written": false,
   "downstream_modifications": [],
-  "raw_market_data_written": false
+  "execution_authorized": false
 }
