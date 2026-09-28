@@ -1,6 +1,6 @@
 {
   "schema": "advanced-csv-nexus-state-v1",
-  "as_of_run_id": "ADVCSV-NEXUS-20260928T1636Z-MANUAL-CONTINUE",
+  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-01",
   "authoritative_reconciliation": {
     "ten_archives_identified": true,
     "physical_csv_members": 659,
@@ -14,13 +14,45 @@
     "Compare per-member timestamp ranges and schema fingerprints against representation registry.",
     "Resolve chart/provider/session/timezone/continuous-roll identity for owner exports.",
     "Investigate the 626-row historical counting discrepancy without assuming its cause.",
-    "Locate/reconcile any owner corpus beyond the verified ten-ZIP / 803-extracted-file checkpoint."
+    "Locate/reconcile any owner corpus beyond the verified ten-ZIP / 803-extracted-file checkpoint.",
+    "Hash-reconcile the five Icarus-engine MNQ CSVs against the 542-content owner corpus.",
+    "Independently parse row counts/timestamp continuity for the four large corrected MNQ full-session CSVs.",
+    "Recover or document the exact original Massive aggregate-bar query resolution used to build the corrected MNQ tape."
   ],
   "next_collection_targets": [
-    "materialize the ten ZIPs in a binary-capable environment and hash each archive",
+    "materialize the ten ZIPs and Icarus-engine MNQ CSVs in a binary-capable environment; compute comparable SHA-256",
+    "parse corrected MNQ 5m/10m/20m/30m rows and timestamp continuity",
+    "compare the MNQ content hashes against the 542-content archive manifest",
+    "preserve Massive contract/window/roll lineage separately from derived continuous-series identity",
     "produce archive/member hash graph and per-member timestamp coverage",
     "separate standard OHLC, derived chart, profile/signal-enriched, index/CFD/future sibling venues",
     "reconcile any additional Library/Drive/monothic-stack CSVs against the 542-content SHA set"
   ],
-  "production_or_model_changes": false
+  "production_or_model_changes": false,
+  "additional_candidate_corpora": {
+    "icarus_engine_real_mnq": {
+      "status": "CANDIDATE_NEW_UNRECONCILED_WITH_542_SHA_SET",
+      "repository": "reppiks490/Icarus-engine",
+      "files": 5,
+      "corrected_full_files": 4,
+      "legacy_session_only_files": 1,
+      "corrected_full_csv_bytes": 17818762,
+      "all_csv_bytes_including_legacy": 18840173,
+      "source_vendor_family": "Massive Futures Aggregate Bars",
+      "contracts": [
+        "MNQZ4",
+        "MNQH5",
+        "MNQM5",
+        "MNQU5",
+        "MNQZ5",
+        "MNQH6",
+        "MNQM6",
+        "MNQU6",
+        "MNQZ6"
+      ],
+      "legacy_20m_rows": 15298,
+      "legacy_20m_sessions": 516,
+      "overlap_with_542_sha_set": "UNRESOLVED"
+    }
+  }
 }
