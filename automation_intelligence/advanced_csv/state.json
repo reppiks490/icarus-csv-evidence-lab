@@ -1,6 +1,6 @@
 {
   "schema": "advanced-csv-nexus-state-v1",
-  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-03",
+  "as_of_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
   "authoritative_reconciliation": {
     "ten_archives_identified": true,
     "physical_csv_members": 659,
@@ -19,12 +19,16 @@
     "Recover or document the exact original Massive aggregate-bar query resolution used to build the corrected MNQ tape.",
     "Obtain member-level SHA-256 manifest or binary access to the ten ZIP archives to prove/disprove MNQ byte overlap with the 542-content baseline.",
     "Directly compare the five fresh MNQ SHA-256 values against the intentionally off-Git 542-member parallax-ten-archives manifest.",
-    "Classify nominal-step gaps against the CME session/holiday calendar before labeling any as missing bars."
+    "Determine root cause of confirmed roll-boundary omissions: original Massive query windows vs spill completeness vs extraction/windowing.",
+    "Complete direct Massive source replay for remaining roll-boundary holes when provider quota permits.",
+    "Finish calendar/source adjudication of residual non-maintenance/non-weekend gaps, especially pre-2026 dates."
   ],
   "next_collection_targets": [
+    "recover original Massive spill/query parameters and reconcile them with the 8 roll holes",
+    "complete roll-gap source probes for all handoffs",
+    "obtain or regenerate the 542-member hash manifest and test all five MNQ hashes for exact membership",
+    "classify residual 2024-2025 gaps against CME holiday schedules and source replay",
     "obtain or regenerate the 542-member hash manifest and perform direct set-membership tests for the five MNQ SHA-256 values",
-    "audit Massive source query parameters and contract-roll boundary continuity",
-    "classify MNQ gap transitions against CME trading-session and holiday semantics",
     "audit Massive source query parameters and per-contract coverage/roll-boundary continuity",
     "materialize the ten ZIPs and Icarus-engine MNQ CSVs in a binary-capable environment; compute comparable SHA-256",
     "parse corrected MNQ 5m/10m/20m/30m rows and timestamp continuity",
@@ -113,6 +117,21 @@
         "off_quarter_tick_rows_each_file": 0,
         "invalid_volume_rows_each_file": 0,
         "global_persisted_hash_reference_matches": 0
+      },
+      "roll_boundary_quality": {
+        "status": "CONFIRMED_DATA_QUALITY_DEFECT_IN_CONSTRUCTED_CONTINUOUS_TAPE",
+        "long_roll_gaps": 8,
+        "nominal_5m_slots_absent": 408,
+        "directly_source_confirmed_gap_windows": 3,
+        "additional_first_roll_incoming_contract_confirmed": true,
+        "root_cause": "UNRESOLVED"
+      },
+      "gap_taxonomy": {
+        "transitions_gt_5m": 539,
+        "maintenance_pattern": 394,
+        "weekend_pattern": 96,
+        "residual": 49,
+        "note": "Residual includes holidays, roll holes, and source-level no-bar/provider gaps."
       }
     }
   }
