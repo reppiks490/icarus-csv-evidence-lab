@@ -1,0 +1,10 @@
+{
+  "schema_version": "advanced-csv-heartbeat-v2",
+  "engine": "advanced_csv",
+  "RUN_ID": null,
+  "RUN_STATUS": "IDLE_READY",
+  "bootstrap_reason": "Seeded by orchestration audit because scheduled invocations had no durable heartbeat while manual run history/state remained valid.",
+  "previous_successful_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
+  "next_run_requirement": "Replace with IN_PROGRESS using fresh SHA, re-fetch exact RUN_ID/status, then collect.",
+  "execution_authorized": false
+}
