@@ -1,0 +1,75 @@
+{
+  "schema_version": "advanced-csv-run-v2",
+  "RUN_ID": "advanced-csv-20260929T031500Z",
+  "RUN_STATUS": "RUN_PERSISTED",
+  "run_start_time": "2026-09-29T03:18:51Z",
+  "run_end_time": "2026-09-29T03:18:51Z",
+  "PREVIOUS_SUCCESSFUL_RUN_ID": "ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE",
+  "EXPECTED_CADENCE_MINUTES": 60,
+  "PASSES_COMPLETED": 10,
+  "NET_NEW_DELTA": {
+    "corpus": "NO_NEW_CORPUS_EVIDENCE",
+    "reconciliation": "Existing ten-archive checkpoint retained without recount because no stronger evidence was obtained.",
+    "mnq_massive_continuous": "Still unresolved against the 542-content SHA-256 baseline; no novelty claim made.",
+    "stranded_prior_run": "advanced-csv-20260929T001500Z preserved as stranded incident evidence."
+  },
+  "PREVIOUS_STATE_LOADED": true,
+  "STATE_CONTINUITY_STATUS": "VERIFIED_FROM_REPO_LATEST_STATE_MANIFEST",
+  "HISTORICAL_BACKFILL_STATUS": "UNCHANGED_PARTIAL",
+  "authoritative_checkpoint": {
+    "physical_csv_members": 659,
+    "logical_rows": 13788256,
+    "distinct_sha256_contents": 542,
+    "extracted_physical_files": 803
+  },
+  "provenance_source_identities": {
+    "baseline": "ten-archive Advanced CSV/NEXUS checkpoint",
+    "candidate_branch": {
+      "provider": "Massive",
+      "venue": "CME futures",
+      "instrument": "MNQ",
+      "continuous_status": "derived continuous candidate",
+      "roll_policy": "explicit front-month roll windows",
+      "intervals": [
+        "5m",
+        "10m",
+        "20m",
+        "30m"
+      ],
+      "timestamp_semantics": "UTC bar-close timestamps",
+      "session": "full-session CME 18:00 ET grid for *_full representations",
+      "representation_status": "derived representations of related rolled contract history",
+      "license_access": "existing repository evidence only; no raw owner/paid data committed this run"
+    }
+  },
+  "schema_representation_availability_findings": [
+    "Physical content identity remains separate from semantic identity.",
+    "Four full-session MNQ timeframe files remain deterministic/related representations, not four independent economic observations.",
+    "Legacy 20m and full-session 20m remain distinct bar-grid/session representations with zero timestamp overlap in prior verified evidence.",
+    "No new schema, timestamp, row-shape, duplicate, availability, chart/export or source-quality evidence was acquired this cycle."
+  ],
+  "conflicts_gaps": [
+    "Complete 542-member SHA-256 manifest remains unavailable in current durable repo state.",
+    "Five MNQ candidate SHA-256 values therefore remain unresolved for byte overlap against the baseline.",
+    "Library history/state backup was not writable in this runtime, so BACKLOG_DURABLE is false."
+  ],
+  "persistence_evidence": {
+    "startup_heartbeat_commit": "a22c8690dfee4914fc56981a7fb0feaf519b4879",
+    "startup_heartbeat_blob": "63a0615d07633de8522884abc1b6a69667acfc9b",
+    "startup_readback_verified": true,
+    "library_history_exact_readback": false,
+    "library_state_exact_readback": false,
+    "github_history_exact_readback": true,
+    "latest_exact_readback": true,
+    "state_exact_readback": true,
+    "manifest_exact_readback": true,
+    "finalized_heartbeat_exact_readback": true
+  },
+  "BACKLOG_DURABLE": false,
+  "CLEAN_1_TO_1_VERIFIED": false,
+  "FINALIZATION_STATUS": "GITHUB_1_TO_1_VERIFIED_LIBRARY_BACKUP_UNAVAILABLE",
+  "raw_owner_data_written": false,
+  "downstream_models_modified": false,
+  "production_code_modified": false,
+  "execution_authorized": false
+}
