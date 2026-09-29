@@ -1,13 +1,13 @@
 {
-  "schema_version": "advanced-csv-automation-v1",
+  "schema_version": "advanced-csv-automation-v2",
   "repository": "reppiks490/icarus-csv-evidence-lab",
   "owned_root": "automation_intelligence/advanced_csv/",
-  "current_run": "ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE",
-  "status": "RUN_PERSISTED",
+  "current_run": "advanced-csv-20260929T031500Z",
+  "status": "PARTIAL_PERSISTENCE",
   "history_immutable": true,
-  "raw_owner_data_committed": false,
-  "execution_authorized": false,
-  "history_path": "automation_intelligence/advanced_csv/history/ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE.json",
+  "history_path": "automation_intelligence/advanced_csv/history/advanced-csv-20260929T031500Z.json",
   "latest_path": "automation_intelligence/advanced_csv/latest.json",
-  "state_path": "automation_intelligence/advanced_csv/state.json"
+  "state_path": "automation_intelligence/advanced_csv/state.json",
+  "BACKLOG_DURABLE": false,
+  "execution_authorized": false
 }
