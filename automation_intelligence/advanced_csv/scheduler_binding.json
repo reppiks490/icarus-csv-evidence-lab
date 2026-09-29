@@ -1,0 +1,14 @@
+{
+  "schema_version": "scheduler-binding-v1",
+  "title": "Advanced CSV Data Collector",
+  "automation_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "minute": 15,
+  "timezone": "America/Chicago",
+  "timing_mode": "exact_schedule",
+  "repository": "reppiks490/icarus-csv-evidence-lab",
+  "branch": "main",
+  "root": "automation_intelligence/advanced_csv",
+  "ownership": "collection_only_csv_evidence_loop",
+  "isolation_policy": "This scheduler owns only the Advanced CSV/NEXUS evidence root in this repository; never adopt scheduler/control-plane identity from Icarus-engine omega_stack/AION/DAEDALUS namespaces.",
+  "execution_authorized": false
+}
