@@ -1,7 +1,9 @@
 {
-  "schema": "advanced-csv-nexus-state-v2",
-  "as_of_run_id": "advanced-csv-20260929T031500Z",
-  "RUN_STATUS": "PARTIAL_PERSISTENCE",
+  "schema": "advanced-csv-nexus-state-v3",
+  "as_of_run_id": "advanced-csv-20260929T061500Z",
+  "RUN_STATUS": "RUN_PERSISTED",
+  "history_mode": "immutable_per_run_file",
+  "history_blob_sha": "4ed4f0812fa52324e65cbdca47d597fa88b6450a",
   "authoritative_reconciliation": {
     "ten_archives_identified": true,
     "physical_csv_members": 659,
@@ -15,10 +17,7 @@
       "novelty_against_542_set": "unresolved"
     }
   },
-  "open_gaps": [
-    "Complete 542-member SHA-256 manifest remains unavailable in current durable repo state.",
-    "Five MNQ candidate SHA-256 values therefore remain unresolved for byte overlap against the baseline.",
-    "Library history/state backup could not be created and exact-read-back in this runtime."
-  ],
+  "BACKLOG_DURABLE": false,
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
   "execution_authorized": false
 }
