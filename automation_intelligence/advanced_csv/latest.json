@@ -1,23 +1,22 @@
 {
-  "schema_version": "advanced-csv-run-v3",
-  "RUN_ID": "advanced-csv-20260929T081500Z",
+  "schema_version": "advanced-csv-run-v4",
+  "RUN_ID": "advanced-csv-20260929T191500Z",
   "RUN_STATUS": "RUN_PERSISTED",
-  "run_start_time": "2026-09-29T08:18:19Z",
-  "run_end_time": "2026-09-29T08:19:00Z",
+  "run_start_time": "2026-09-29T19:16:42Z",
+  "run_end_time": "2026-09-29T19:17:30Z",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
   "scheduler_title": "Advanced CSV Data Collector",
-  "PREVIOUS_SUCCESSFUL_RUN_ID": "advanced-csv-20260929T061500Z",
+  "PREVIOUS_SUCCESSFUL_RUN_ID": "advanced-csv-20260929T081500Z",
   "EXPECTED_CADENCE_MINUTES": 60,
   "PASSES_COMPLETED": 10,
   "NET_NEW_DELTA": {
     "corpus": "NO_NEW_CORPUS_EVIDENCE",
-    "reconciliation": "Retained verified ten-archive baseline; no stronger evidence justified recount.",
-    "mnq_massive_continuous": "Byte overlap against 542-content baseline remains unresolved.",
-    "continuity": "Prior 0715 pointer split preserved as incident evidence; it did not suppress this invocation."
+    "reconciliation": "Retained verified ten-archive baseline; repository search found no stronger MNQ/Massive overlap evidence.",
+    "mnq_massive_continuous": "Byte overlap against 542-content baseline remains unresolved."
   },
   "PREVIOUS_STATE_LOADED": true,
-  "STATE_CONTINUITY_STATUS": "RECONCILED_POINTER_SPLIT_USING_LAST_FULLY_AGREED_0615_BASELINE_AND_0715_INCIDENT_EVIDENCE",
-  "HISTORICAL_BACKFILL_STATUS": "UNCHANGED_PARTIAL",
+  "STATE_CONTINUITY_STATUS": "VERIFIED_081500Z_POINTER_AGREEMENT_WITH_LATER_PARTIALS_PRESERVED_IN_LEDGER",
+  "HISTORICAL_BACKFILL_STATUS": "UNCHANGED_PARTIALS_PRESERVED",
   "authoritative_checkpoint": {
     "physical_csv_members": 659,
     "logical_rows": 13788256,
@@ -36,28 +35,24 @@
   },
   "schema_representation_availability_findings": [
     "Physical-content identity remains separate from semantic identity.",
-    "No new schema, provenance, timestamp, availability, duplicate, header, row-shape, chart/export, aggregation, or source-quality evidence was acquired this cycle.",
-    "Per-contract and roll-boundary identity remains separate from continuous-series identity; deterministic derivatives are not counted as independent observations."
+    "No new schema, provenance, timestamp, availability, duplicate, header, row-shape, chart/export, aggregation, or source-quality evidence was acquired.",
+    "Per-contract and roll-boundary identity remains separate from continuous-series identity; deterministic derivatives are not independent observations."
   ],
   "conflicts_gaps": [
-    "Complete 542-member SHA-256 baseline manifest is not available in current durable repository state.",
-    "MNQ Massive candidate byte overlap against that baseline remains unresolved.",
-    "Prior 0715 run left latest=0715 while state/manifest=0615 and heartbeat=0715 PARTIAL_PERSISTENCE."
+    "Complete 542-member SHA-256 baseline manifest remains unavailable in current durable repository state.",
+    "MNQ Massive candidate byte overlap remains unresolved."
   ],
   "persistence_evidence": {
-    "startup_heartbeat_commit": "d111f011c5f7e4b7d9b495c5c2e53037255769b8",
-    "startup_heartbeat_blob": "0304dc62396b90c54f36f3aa51f45a851640776b",
+    "startup_heartbeat_commit": "176f9ad43274956fb90faa0dde62ea07bfd0e45f",
+    "startup_heartbeat_blob": "6c9af772b58de00abecfca350a05d99802a16313",
     "startup_readback_verified": true,
-    "history_mode": "ledger_fallback",
-    "previous_ledger_blob_sha": "72c18266c2dc924862be180b58c7df7f218473b4",
-    "immutable_history_create_blocker": "connector safety/write guard"
+    "history_blob_sha": "74f845f54b26ba7bec6f9f37c89a63aa684f77aa"
   },
   "BACKLOG_DURABLE": false,
   "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
-  "history_mode": "ledger_fallback",
-  "ledger_blob_sha": "7ee0685be714cd5b625ab03030a7ba4681d7c25d",
+  "history_mode": "immutable_per_run_file",
   "CLEAN_GITHUB_RUN": true,
-  "FINALIZATION_STATUS": "GITHUB_LEDGER_FALLBACK_VERIFIED_LIBRARY_UNVERIFIED",
+  "FINALIZATION_STATUS": "GITHUB_PRIMARY_HISTORY_VERIFIED_POINTERS_PENDING",
   "raw_owner_data_written": false,
   "downstream_models_modified": false,
   "production_code_modified": false,
