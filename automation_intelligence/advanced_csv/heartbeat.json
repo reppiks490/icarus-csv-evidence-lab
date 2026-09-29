@@ -1,12 +1,12 @@
 {
   "schema_version": "advanced-csv-heartbeat-v2",
   "engine": "advanced_csv",
-  "RUN_ID": null,
-  "RUN_STATUS": "IDLE_READY",
-  "bootstrap_reason": "Seeded by orchestration audit because scheduled invocations had no durable heartbeat while manual run history/state remained valid.",
-  "previous_successful_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
-  "next_run_requirement": "Replace with IN_PROGRESS using fresh SHA, re-fetch exact RUN_ID/status, then collect.",
+  "RUN_ID": "advanced-csv-20260929T001500Z",
+  "RUN_STATUS": "IN_PROGRESS",
+  "EXPECTED_CADENCE_MINUTES": 60,
+  "scheduler_title": "Advanced CSV Data Collector",
   "execution_authorized": false,
-  "SECONDARY_LIBRARY_BACKUP_STATUS": "UNVERIFIED_REQUIRES_EXACT_READBACK",
-  "LIBRARY_VERIFICATION_RULE": "BACKLOG_DURABLE may be true only after exact RUN_ID artifact is re-listed/read and payload identity is verified."
+  "started_at_utc": "2026-09-29T00:16:50Z",
+  "previous_successful_run_id": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04",
+  "SECONDARY_LIBRARY_BACKUP_STATUS": "UNVERIFIED_REQUIRES_EXACT_READBACK"
 }
