@@ -3,18 +3,12 @@
   "lane": "advanced_csv",
   "scheduler_title": "Advanced CSV Data Collector",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "RUN_ID": "advanced-csv-20260929T071500Z",
-  "RUN_STATUS": "PARTIAL_PERSISTENCE",
-  "scheduled_for_utc": "2026-09-29T07:15:00Z",
+  "RUN_ID": "advanced-csv-20260929T081500Z",
+  "RUN_STATUS": "IN_PROGRESS",
+  "scheduled_for_utc": "2026-09-29T08:15:00Z",
   "EXPECTED_CADENCE_MINUTES": 60,
   "previous_successful_run_id": "advanced-csv-20260929T061500Z",
   "prior_partial_runs_preserved": true,
   "persistence_protocol": "advanced-csv-persistence-v3",
-  "execution_authorized": false,
-  "history_mode": "immutable_per_run_file",
-  "history_blob_sha": "e6d3b05147531a35362b7fb20f8251fab55292db",
-  "history_exact_readback": true,
-  "pointer_promotion_status": "BLOCKED_BY_CONNECTOR_SAFETY_GUARD",
-  "BACKLOG_DURABLE": false,
-  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED"
+  "execution_authorized": false
 }
