@@ -1,7 +1,7 @@
 {
   "schema_version": "advanced-csv-run-v2",
   "RUN_ID": "advanced-csv-20260929T031500Z",
-  "RUN_STATUS": "RUN_PERSISTED",
+  "RUN_STATUS": "PARTIAL_PERSISTENCE",
   "run_start_time": "2026-09-29T03:18:51Z",
   "run_end_time": "2026-09-29T03:18:51Z",
   "PREVIOUS_SUCCESSFUL_RUN_ID": "ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE",
@@ -67,7 +67,7 @@
   },
   "BACKLOG_DURABLE": false,
   "CLEAN_1_TO_1_VERIFIED": false,
-  "FINALIZATION_STATUS": "GITHUB_1_TO_1_VERIFIED_LIBRARY_BACKUP_UNAVAILABLE",
+  "FINALIZATION_STATUS": "PARTIAL_PERSISTENCE_LIBRARY_BACKUP_UNAVAILABLE",
   "raw_owner_data_written": false,
   "downstream_models_modified": false,
   "production_code_modified": false,
