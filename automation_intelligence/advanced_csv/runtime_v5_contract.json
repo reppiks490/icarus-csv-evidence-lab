@@ -1,0 +1,32 @@
+{
+  "schema_version": "restored-advanced-csv-runtime-v5",
+  "scope": "this account's Advanced CSV Data Collector only",
+  "scheduler_source_of_truth": "live ChatGPT automation registry for this account",
+  "scheduler": {
+    "title": "Advanced CSV Data Collector",
+    "automation_id": "6abaef9d5c28819190d98a5af7f308b8",
+    "minute": 15,
+    "timezone": "America/Chicago"
+  },
+  "root": "automation_intelligence/advanced_csv",
+  "authoritative_runtime": {
+    "startup": "heartbeat first",
+    "history_file": "automation_intelligence/advanced_csv/staging.json",
+    "finalization_file": "automation_intelligence/advanced_csv/finalization_state.json",
+    "history_identity": "Git update commit SHA + staging blob SHA",
+    "closure": "heartbeat RUN_PERSISTED binds staging commit/blob and finalization_state blob",
+    "compatibility_mirrors": [
+      "latest.json",
+      "state.json",
+      "manifest.json",
+      "history_ledger.jsonl",
+      "history/<RUN_ID>.json"
+    ],
+    "compatibility_mirrors_block_success": false,
+    "new_per_run_file_creation_required": false,
+    "library_backup_role": "secondary_non_blocking"
+  },
+  "foreign_or_separate_repo_authority": "Icarus-engine OMEGA/AION/DAEDALUS scheduler/control-plane state",
+  "foreign_repo_commits_do_not_rebind_scheduler_authority": true,
+  "execution_authorized": false
+}
