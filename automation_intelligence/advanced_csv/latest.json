@@ -1,9 +1,9 @@
 {
   "schema_version": "advanced-csv-run-v3",
-  "RUN_ID": "advanced-csv-20260929T071500Z",
+  "RUN_ID": "advanced-csv-20260929T081500Z",
   "RUN_STATUS": "RUN_PERSISTED",
-  "run_start_time": "2026-09-29T07:11:40Z",
-  "run_end_time": "2026-09-29T07:15:00Z",
+  "run_start_time": "2026-09-29T08:18:19Z",
+  "run_end_time": "2026-09-29T08:19:00Z",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
   "scheduler_title": "Advanced CSV Data Collector",
   "PREVIOUS_SUCCESSFUL_RUN_ID": "advanced-csv-20260929T061500Z",
@@ -13,10 +13,10 @@
     "corpus": "NO_NEW_CORPUS_EVIDENCE",
     "reconciliation": "Retained verified ten-archive baseline; no stronger evidence justified recount.",
     "mnq_massive_continuous": "Byte overlap against 542-content baseline remains unresolved.",
-    "continuity": "Prior persisted and partial history preserved; no prior incident suppressed this invocation."
+    "continuity": "Prior 0715 pointer split preserved as incident evidence; it did not suppress this invocation."
   },
   "PREVIOUS_STATE_LOADED": true,
-  "STATE_CONTINUITY_STATUS": "VERIFIED_FROM_BINDING_CONTRACT_HEARTBEAT_LATEST_STATE_MANIFEST_HISTORY_LEDGER",
+  "STATE_CONTINUITY_STATUS": "RECONCILED_POINTER_SPLIT_USING_LAST_FULLY_AGREED_0615_BASELINE_AND_0715_INCIDENT_EVIDENCE",
   "HISTORICAL_BACKFILL_STATUS": "UNCHANGED_PARTIAL",
   "authoritative_checkpoint": {
     "physical_csv_members": 659,
@@ -41,23 +41,23 @@
   ],
   "conflicts_gaps": [
     "Complete 542-member SHA-256 baseline manifest is not available in current durable repository state.",
-    "MNQ Massive candidate byte overlap against that baseline remains unresolved."
+    "MNQ Massive candidate byte overlap against that baseline remains unresolved.",
+    "Prior 0715 run left latest=0715 while state/manifest=0615 and heartbeat=0715 PARTIAL_PERSISTENCE."
   ],
   "persistence_evidence": {
-    "startup_heartbeat_commit": "65e617bb3bce779ac4577787498dfb6f6cdf8d29",
-    "startup_heartbeat_blob": "a8b3cc26ff64fe74309975892ec364d53e77d81c",
+    "startup_heartbeat_commit": "d111f011c5f7e4b7d9b495c5c2e53037255769b8",
+    "startup_heartbeat_blob": "0304dc62396b90c54f36f3aa51f45a851640776b",
     "startup_readback_verified": true,
-    "history_mode": "immutable_per_run_file",
-    "history_path": "automation_intelligence/advanced_csv/history/advanced-csv-20260929T071500Z.json",
-    "history_blob_sha": "e6d3b05147531a35362b7fb20f8251fab55292db",
-    "history_exact_readback": true
+    "history_mode": "ledger_fallback",
+    "previous_ledger_blob_sha": "72c18266c2dc924862be180b58c7df7f218473b4",
+    "immutable_history_create_blocker": "connector safety/write guard"
   },
   "BACKLOG_DURABLE": false,
   "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
-  "history_mode": "immutable_per_run_file",
-  "history_blob_sha": "e6d3b05147531a35362b7fb20f8251fab55292db",
+  "history_mode": "ledger_fallback",
+  "ledger_blob_sha": "7ee0685be714cd5b625ab03030a7ba4681d7c25d",
   "CLEAN_GITHUB_RUN": true,
-  "FINALIZATION_STATUS": "GITHUB_PRIMARY_VERIFIED_LIBRARY_UNVERIFIED",
+  "FINALIZATION_STATUS": "GITHUB_LEDGER_FALLBACK_VERIFIED_LIBRARY_UNVERIFIED",
   "raw_owner_data_written": false,
   "downstream_models_modified": false,
   "production_code_modified": false,
