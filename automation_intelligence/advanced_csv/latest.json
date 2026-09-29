@@ -1,20 +1,22 @@
 {
-  "schema_version": "advanced-csv-run-v2",
-  "RUN_ID": "advanced-csv-20260929T031500Z",
-  "RUN_STATUS": "PARTIAL_PERSISTENCE",
-  "run_start_time": "2026-09-29T03:18:51Z",
-  "run_end_time": "2026-09-29T03:18:51Z",
+  "schema_version": "advanced-csv-run-v3",
+  "RUN_ID": "advanced-csv-20260929T061500Z",
+  "RUN_STATUS": "RUN_PERSISTED",
+  "run_start_time": "2026-09-29T06:11:59Z",
+  "run_end_time": "2026-09-29T06:15:00Z",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "scheduler_title": "Advanced CSV Data Collector",
   "PREVIOUS_SUCCESSFUL_RUN_ID": "ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE",
   "EXPECTED_CADENCE_MINUTES": 60,
   "PASSES_COMPLETED": 10,
   "NET_NEW_DELTA": {
     "corpus": "NO_NEW_CORPUS_EVIDENCE",
-    "reconciliation": "Existing ten-archive checkpoint retained without recount because no stronger evidence was obtained.",
-    "mnq_massive_continuous": "Still unresolved against the 542-content SHA-256 baseline; no novelty claim made.",
-    "stranded_prior_run": "advanced-csv-20260929T001500Z preserved as stranded incident evidence."
+    "reconciliation": "Retained verified ten-archive baseline; no stronger evidence justified recount.",
+    "mnq_massive_continuous": "Byte overlap against 542-content baseline remains unresolved.",
+    "prior_partial": "051500Z preserved and did not suppress this invocation."
   },
   "PREVIOUS_STATE_LOADED": true,
-  "STATE_CONTINUITY_STATUS": "VERIFIED_FROM_REPO_LATEST_STATE_MANIFEST",
+  "STATE_CONTINUITY_STATUS": "VERIFIED",
   "HISTORICAL_BACKFILL_STATUS": "UNCHANGED_PARTIAL",
   "authoritative_checkpoint": {
     "physical_csv_members": 659,
@@ -28,44 +30,34 @@
       "provider": "Massive",
       "venue": "CME futures",
       "instrument": "MNQ",
-      "continuous_status": "derived continuous candidate",
-      "roll_policy": "explicit front-month roll windows",
-      "intervals": [
-        "5m",
-        "10m",
-        "20m",
-        "30m"
-      ],
-      "timestamp_semantics": "UTC bar-close timestamps",
-      "session": "full-session CME 18:00 ET grid for *_full representations",
-      "representation_status": "derived representations of related rolled contract history",
-      "license_access": "existing repository evidence only; no raw owner/paid data committed this run"
+      "continuous_status": "continuous candidate",
+      "byte_overlap_against_baseline": "unresolved"
     }
   },
   "schema_representation_availability_findings": [
-    "Physical content identity remains separate from semantic identity.",
-    "Four full-session MNQ timeframe files remain deterministic/related representations, not four independent economic observations.",
-    "Legacy 20m and full-session 20m remain distinct bar-grid/session representations with zero timestamp overlap in prior verified evidence.",
-    "No new schema, timestamp, row-shape, duplicate, availability, chart/export or source-quality evidence was acquired this cycle."
+    "Physical-content identity remains separate from semantic identity.",
+    "No new schema/provenance/timestamp/availability/duplicate/header/row-shape/chart-export/source-quality evidence was obtained.",
+    "Per-contract and roll-boundary identity remains separate from continuous-series identity."
   ],
   "conflicts_gaps": [
-    "Complete 542-member SHA-256 manifest remains unavailable in current durable repo state.",
-    "Five MNQ candidate SHA-256 values therefore remain unresolved for byte overlap against the baseline.",
-    "Library history/state backup could not be created and exact-read-back in this runtime."
+    "Complete 542-member SHA-256 baseline manifest unavailable in current durable state.",
+    "MNQ Massive byte-overlap remains unresolved."
   ],
   "persistence_evidence": {
-    "startup_heartbeat_commit": "a22c8690dfee4914fc56981a7fb0feaf519b4879",
-    "startup_heartbeat_blob": "63a0615d07633de8522884abc1b6a69667acfc9b",
+    "startup_heartbeat_commit": "57ce252f73081f24bfd946f5966b393d26823bc2",
+    "startup_heartbeat_blob": "9534aa04b3ef39f53e99eaaad6c4a4995d66e970",
     "startup_readback_verified": true,
-    "github_history_commit": "18d548c77d6c25e0882197bb5983e9fb7a9fcb1f",
-    "github_history_blob": "a6cff6625583862c88e96a0f5938848b300f8409",
-    "github_history_exact_readback": true,
-    "library_history_exact_readback": false,
-    "library_state_exact_readback": false
+    "history_mode": "immutable_per_run_file",
+    "history_path": "automation_intelligence/advanced_csv/history/advanced-csv-20260929T061500Z.json",
+    "history_blob_sha": "4ed4f0812fa52324e65cbdca47d597fa88b6450a",
+    "history_exact_readback": true
   },
   "BACKLOG_DURABLE": false,
-  "CLEAN_1_TO_1_VERIFIED": false,
-  "FINALIZATION_STATUS": "PARTIAL_PERSISTENCE_LIBRARY_BACKUP_UNAVAILABLE",
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
+  "history_mode": "immutable_per_run_file",
+  "history_blob_sha": "4ed4f0812fa52324e65cbdca47d597fa88b6450a",
+  "CLEAN_GITHUB_RUN": true,
+  "FINALIZATION_STATUS": "GITHUB_PRIMARY_VERIFIED_LIBRARY_UNVERIFIED",
   "raw_owner_data_written": false,
   "downstream_models_modified": false,
   "production_code_modified": false,
