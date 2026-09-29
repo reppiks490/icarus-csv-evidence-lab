@@ -10,5 +10,8 @@
   "root": "automation_intelligence/advanced_csv",
   "ownership": "collection_only_csv_evidence_loop",
   "isolation_policy": "This scheduler owns only the Advanced CSV/NEXUS evidence root in this repository; never adopt scheduler/control-plane identity from Icarus-engine omega_stack/AION/DAEDALUS namespaces.",
-  "execution_authorized": false
+  "execution_authorized": false,
+  "persistence_contract": "automation_intelligence/advanced_csv/persistence_contract.json",
+  "history_ledger": "automation_intelligence/advanced_csv/history_ledger.jsonl",
+  "persistence_protocol": "advanced-csv-persistence-v3"
 }
