@@ -1,16 +1,17 @@
 {
-  "schema_version": "advanced-csv-automation-v3",
+  "schema_version": "advanced-csv-automation-v4",
   "repository": "reppiks490/icarus-csv-evidence-lab",
   "owned_root": "automation_intelligence/advanced_csv/",
-  "current_run": "advanced-csv-20260929T061500Z",
+  "current_run": "advanced-csv-20260929T081500Z",
   "status": "RUN_PERSISTED",
-  "history_immutable": true,
-  "history_path": "automation_intelligence/advanced_csv/history/advanced-csv-20260929T061500Z.json",
+  "history_immutable": false,
+  "history_path": "automation_intelligence/advanced_csv/history_ledger.jsonl",
   "latest_path": "automation_intelligence/advanced_csv/latest.json",
   "state_path": "automation_intelligence/advanced_csv/state.json",
   "BACKLOG_DURABLE": false,
   "execution_authorized": false,
-  "history_mode": "immutable_per_run_file",
-  "history_blob_sha": "4ed4f0812fa52324e65cbdca47d597fa88b6450a",
-  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED"
+  "history_mode": "ledger_fallback",
+  "ledger_blob_sha": "7ee0685be714cd5b625ab03030a7ba4681d7c25d",
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
+  "reconciliation_note": "081500Z fallback history verified structurally; pointers reconciled."
 }
