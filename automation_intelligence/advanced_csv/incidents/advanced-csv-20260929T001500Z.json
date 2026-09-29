@@ -1,0 +1,13 @@
+{
+  "schema_version": "scheduler-realignment-incident-v1",
+  "lane": "advanced_csv",
+  "scheduler_title": "Advanced CSV Data Collector",
+  "stranded_run_id": "advanced-csv-20260929T001500Z",
+  "classification": "STRANDED_IN_PROGRESS_NO_IMMUTABLE_HISTORY",
+  "accepted_as_success": false,
+  "heartbeat_blob_sha_before_reset": "c8cfaf78415e2c1190a45d2e723247b27760a166",
+  "latest_blob_sha_preserved": "9acfae0a091854e71038e16b9c44c8b2b1ab2f22",
+  "state_blob_sha_preserved": "feaed6a8271326acbab4e9215f67196f185da16c",
+  "action": "Preserved incident; reset only mutable heartbeat to IDLE_READY so the restored original scheduler can start a fresh run.",
+  "execution_authorized": false
+}
