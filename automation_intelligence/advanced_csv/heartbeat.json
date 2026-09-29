@@ -1,20 +1,22 @@
 {
-  "schema_version": "scheduler-heartbeat-v3",
+  "schema_version": "scheduler-heartbeat-v4",
   "lane": "advanced_csv",
   "scheduler_title": "Advanced CSV Data Collector",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "RUN_ID": null,
   "RUN_STATUS": "IDLE_READY",
   "last_successful_run_id": "advanced-csv-20260929T081500Z",
   "last_successful_history_mode": "ledger_fallback",
   "last_successful_ledger_blob_sha": "7ee0685be714cd5b625ab03030a7ba4681d7c25d",
-  "previous_partial_run_id": "advanced-csv-20260929T151500Z",
+  "previous_partial_run_id": "advanced-csv-20260929T181500Z",
   "previous_partial_preserved_in_ledger": true,
-  "current_ledger_blob_sha": "38cb81e1412e429814d811db034c677942471a57",
+  "current_ledger_blob_sha": "78eed795eab64ccc085210648ff6e322d34fb005",
   "next_hourly_invocation_allowed": true,
   "persistence_protocol": "advanced-csv-persistence-v4",
+  "scheduler_enabled_reverified": true,
+  "schedule_timezone": "America/Chicago",
+  "schedule_minute": 15,
   "BACKLOG_DURABLE": false,
   "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
-  "execution_authorized": false,
-  "latest_trigger_without_startup_expected_run_id": "advanced-csv-20260929T161500Z",
-  "latest_trigger_without_startup_preserved": true
+  "execution_authorized": false
 }
