@@ -1,18 +1,17 @@
 {
-  "schema_version": "scheduler-heartbeat-v4",
+  "schema_version": "scheduler-heartbeat-v5-recovery",
   "lane": "advanced_csv",
   "scheduler_title": "Advanced CSV Data Collector",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
   "RUN_ID": "advanced-csv-20260929T191500Z",
-  "RUN_STATUS": "PARTIAL_PERSISTENCE",
+  "RUN_STATUS": "RUN_PERSISTED",
   "scheduled_for_utc": "2026-09-29T19:15:00Z",
-  "EXPECTED_CADENCE_MINUTES": 60,
-  "persistence_protocol": "advanced-csv-persistence-v4",
-  "BACKLOG_DURABLE": false,
-  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
-  "execution_authorized": false,
-  "failure_stage": "MANIFEST_POINTER_PROMOTION",
-  "reason": "Immutable history, latest, and state advanced; manifest update blocked by connector safety guard. Heartbeat not finalized RUN_PERSISTED.",
   "history_mode": "immutable_per_run_file",
-  "history_blob_sha": "74f845f54b26ba7bec6f9f37c89a63aa684f77aa"
+  "history_blob_sha": "74f845f54b26ba7bec6f9f37c89a63aa684f77aa",
+  "latest_blob_sha": "d12b4f5f1a618a65bc09a877f8cfee06d659ffa1",
+  "state_blob_sha": "0886a2f23034e0a32c95d553d810a521b15682ab",
+  "manifest_blob_sha": "2d5dba6abb29959181c64f6e386149685a3d0d67",
+  "recovery_note": "Pre-v5 191500Z run recovered after manifest connector guard; all primary pointers re-read.",
+  "next_hourly_invocation_allowed": true,
+  "execution_authorized": false
 }
