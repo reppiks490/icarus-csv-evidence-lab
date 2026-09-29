@@ -1,7 +1,32 @@
 {
   "schema_version": "scheduler-staging-v5.2",
   "RUN_ID": "advanced-csv-20260929T221500Z",
-  "RUN_STATUS": "STARTED",
+  "RUN_STATUS": "STAGED_FINAL",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "execution_authorized": false
+  "execution_authorized": false,
+  "collection_mode": "COLLECTION_ONLY",
+  "evidence_result": "NO_NEW_EVIDENCE",
+  "baseline": {
+    "physical_csv_members": 659,
+    "logical_rows": 13788256,
+    "distinct_sha256_contents": 542,
+    "extracted_physical_files": 803
+  },
+  "mnq_massive_byte_overlap": "UNRESOLVED",
+  "bounded_calls": {
+    "used": 2,
+    "findings": [
+      "corpus_inventory.json not present at expected owned-root path",
+      "source_registry.json not present at expected owned-root path"
+    ],
+    "interpretation": "Absence of these optional evidence files is not stronger evidence; preserve verified baseline."
+  },
+  "prohibitions_respected": {
+    "training": false,
+    "backtesting": false,
+    "strategy_promotion": false,
+    "production_mutation": false,
+    "raw_private_data_committed": false
+  },
+  "BACKLOG_DURABLE": false
 }
