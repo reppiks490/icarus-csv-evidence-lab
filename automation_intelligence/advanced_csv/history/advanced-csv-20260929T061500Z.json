@@ -1,0 +1,60 @@
+{
+  "schema_version": "advanced-csv-run-v3",
+  "RUN_ID": "advanced-csv-20260929T061500Z",
+  "RUN_STATUS": "RUN_PERSISTED",
+  "run_start_time": "2026-09-29T06:11:59Z",
+  "run_end_time": "2026-09-29T06:15:00Z",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "scheduler_title": "Advanced CSV Data Collector",
+  "PREVIOUS_SUCCESSFUL_RUN_ID": "ADVCSV-NEXUS-20260928T2221Z-MANUAL-CONTINUE",
+  "EXPECTED_CADENCE_MINUTES": 60,
+  "PASSES_COMPLETED": 10,
+  "NET_NEW_DELTA": {
+    "corpus": "NO_NEW_CORPUS_EVIDENCE",
+    "reconciliation": "Retained newest verified ten-archive baseline; no stronger evidence justified recount.",
+    "mnq_massive_continuous": "Byte overlap against 542-content baseline remains unresolved.",
+    "prior_partial": "advanced-csv-20260929T051500Z preserved in history ledger; did not suppress this invocation."
+  },
+  "PREVIOUS_STATE_LOADED": true,
+  "STATE_CONTINUITY_STATUS": "VERIFIED_FROM_BINDING_CONTRACT_LATEST_STATE_MANIFEST_LEDGER",
+  "HISTORICAL_BACKFILL_STATUS": "UNCHANGED_PARTIAL",
+  "authoritative_checkpoint": {
+    "physical_csv_members": 659,
+    "logical_rows": 13788256,
+    "distinct_sha256_contents": 542,
+    "extracted_physical_files": 803
+  },
+  "provenance_source_identities": {
+    "baseline": "ten-archive Advanced CSV/NEXUS checkpoint",
+    "candidate_branch": {
+      "provider": "Massive",
+      "venue": "CME futures",
+      "instrument": "MNQ",
+      "continuous_status": "continuous candidate",
+      "byte_overlap_against_baseline": "unresolved"
+    }
+  },
+  "schema_representation_availability_findings": [
+    "Physical-content identity remains separate from semantic identity.",
+    "No new schema/provenance/timestamp/availability/duplicate/header/row-shape/chart-export/source-quality evidence was obtained.",
+    "Per-contract and roll-boundary identity remains separate from continuous-series identity."
+  ],
+  "conflicts_gaps": [
+    "Complete 542-member SHA-256 baseline manifest is not available in current durable repo state.",
+    "MNQ Massive byte-overlap against that set remains unresolved."
+  ],
+  "persistence_evidence": {
+    "startup_heartbeat_commit": "57ce252f73081f24bfd946f5966b393d26823bc2",
+    "startup_heartbeat_blob": "9534aa04b3ef39f53e99eaaad6c4a4995d66e970",
+    "startup_readback_verified": true
+  },
+  "BACKLOG_DURABLE": false,
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
+  "history_mode": "PENDING",
+  "CLEAN_GITHUB_RUN": false,
+  "FINALIZATION_STATUS": "PENDING",
+  "raw_owner_data_written": false,
+  "downstream_models_modified": false,
+  "production_code_modified": false,
+  "execution_authorized": false
+}
