@@ -13,5 +13,7 @@
   "execution_authorized": false,
   "persistence_contract": "automation_intelligence/advanced_csv/persistence_contract.json",
   "history_ledger": "automation_intelligence/advanced_csv/history_ledger.jsonl",
-  "persistence_protocol": "advanced-csv-persistence-v4"
+  "persistence_protocol": "advanced-csv-persistence-v4",
+  "current_slot_continuation_required": true,
+  "current_slot_rule": "Recovery of prior partial/stranded runs is STEP 0 only; every invocation must proceed into its own current scheduled RUN_ID unless current-slot startup persistence itself fails after one safe retry."
 }
