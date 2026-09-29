@@ -4,11 +4,15 @@
   "scheduler_title": "Advanced CSV Data Collector",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
   "RUN_ID": "advanced-csv-20260929T061500Z",
-  "RUN_STATUS": "IN_PROGRESS",
+  "RUN_STATUS": "RUN_PERSISTED",
   "scheduled_for_utc": "2026-09-29T06:15:00Z",
   "EXPECTED_CADENCE_MINUTES": 60,
   "previous_partial_run_id": "advanced-csv-20260929T051500Z",
   "previous_partial_preserved": true,
   "persistence_protocol": "advanced-csv-persistence-v3",
-  "execution_authorized": false
+  "execution_authorized": false,
+  "history_mode": "immutable_per_run_file",
+  "history_blob_sha": "4ed4f0812fa52324e65cbdca47d597fa88b6450a",
+  "BACKLOG_DURABLE": false,
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED"
 }
