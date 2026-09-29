@@ -2,10 +2,10 @@
   "schema_version": "advanced-csv-heartbeat-v2",
   "engine": "advanced_csv",
   "RUN_ID": "advanced-csv-20260929T031500Z",
-  "RUN_STATUS": "IN_PROGRESS",
+  "RUN_STATUS": "PARTIAL_PERSISTENCE",
   "EXPECTED_CADENCE_MINUTES": 60,
   "scheduler_title": "Advanced CSV Data Collector",
-  "started_at_utc": "2026-09-29T03:18:51Z",
-  "PREVIOUS_STRANDED_RUN_ID": "advanced-csv-20260929T001500Z",
+  "FINALIZATION_STATUS": "PARTIAL_PERSISTENCE_LIBRARY_BACKUP_UNAVAILABLE",
+  "BACKLOG_DURABLE": false,
   "execution_authorized": false
 }
