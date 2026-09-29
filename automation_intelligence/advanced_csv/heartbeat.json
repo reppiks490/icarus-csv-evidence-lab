@@ -13,5 +13,13 @@
   "execution_authorized": false,
   "PARTIAL_REASON": "Immutable GitHub history creation was blocked by connector safety checks; Library upload also unavailable.",
   "BACKLOG_DURABLE": false,
-  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED"
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
+  "PERSISTENCE_STATUS": "PARTIAL_PERSISTENCE_LEDGER_RECORDED",
+  "history_mode": "ledger_fallback_failure_receipt",
+  "history_ledger_path": "automation_intelligence/advanced_csv/history_ledger.jsonl",
+  "history_ledger_blob_sha": "e1376f6fbb7751efa1f49f110e4c2d5e01037384",
+  "partial_history_durable": true,
+  "latest_advanced": false,
+  "state_advanced": false,
+  "manifest_advanced": false
 }
