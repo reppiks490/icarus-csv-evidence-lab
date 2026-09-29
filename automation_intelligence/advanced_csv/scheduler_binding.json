@@ -13,5 +13,5 @@
   "execution_authorized": false,
   "persistence_contract": "automation_intelligence/advanced_csv/persistence_contract.json",
   "history_ledger": "automation_intelligence/advanced_csv/history_ledger.jsonl",
-  "persistence_protocol": "advanced-csv-persistence-v3"
+  "persistence_protocol": "advanced-csv-persistence-v4"
 }
