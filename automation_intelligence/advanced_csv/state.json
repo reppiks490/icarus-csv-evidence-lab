@@ -1,9 +1,9 @@
 {
-  "schema": "advanced-csv-nexus-state-v3",
-  "as_of_run_id": "advanced-csv-20260929T061500Z",
+  "schema": "advanced-csv-nexus-state-v4",
+  "as_of_run_id": "advanced-csv-20260929T081500Z",
   "RUN_STATUS": "RUN_PERSISTED",
-  "history_mode": "immutable_per_run_file",
-  "history_blob_sha": "4ed4f0812fa52324e65cbdca47d597fa88b6450a",
+  "history_mode": "ledger_fallback",
+  "ledger_blob_sha": "7ee0685be714cd5b625ab03030a7ba4681d7c25d",
   "authoritative_reconciliation": {
     "ten_archives_identified": true,
     "physical_csv_members": 659,
@@ -19,5 +19,6 @@
   },
   "BACKLOG_DURABLE": false,
   "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
-  "execution_authorized": false
+  "execution_authorized": false,
+  "reconciliation_note": "081500Z complete ledger payload structurally verified under v4 fallback contract; stale 0715/0615 pointer split repaired."
 }
