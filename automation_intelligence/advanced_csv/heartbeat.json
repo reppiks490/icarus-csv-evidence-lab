@@ -1,12 +1,12 @@
 {
-  "schema_version": "advanced-csv-heartbeat-v2",
-  "engine": "advanced_csv",
-  "RUN_ID": "advanced-csv-20260929T041500Z",
-  "RUN_STATUS": "PARTIAL_PERSISTENCE",
-  "EXPECTED_CADENCE_MINUTES": 60,
+  "schema_version": "scheduler-heartbeat-ready-v1",
+  "lane": "advanced_csv",
   "scheduler_title": "Advanced CSV Data Collector",
-  "FINALIZATION_STATUS": "PARTIAL_PERSISTENCE_LIBRARY_BACKUP_UNAVAILABLE_AND_POINTER_PROMOTION_BLOCKED",
-  "BACKLOG_DURABLE": false,
-  "history_path": "automation_intelligence/advanced_csv/history/advanced-csv-20260929T041500Z.json",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "RUN_ID": null,
+  "RUN_STATUS": "IDLE_READY",
+  "PREVIOUS_PARTIAL_RUN_ID": "advanced-csv-20260929T041500Z",
+  "previous_partial_preserved": true,
+  "recovery_note": "Preserved Library-unavailable partial evidence; Library is now secondary and non-blocking for future GitHub finalization.",
   "execution_authorized": false
 }
