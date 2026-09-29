@@ -4,11 +4,14 @@
   "scheduler_title": "Advanced CSV Data Collector",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
   "RUN_ID": "advanced-csv-20260929T051500Z",
-  "RUN_STATUS": "IN_PROGRESS",
+  "RUN_STATUS": "PARTIAL_PERSISTENCE",
   "EXPECTED_CADENCE_MINUTES": 60,
   "scheduled_for_utc": "2026-09-29T05:15:00Z",
   "started_at_utc": "2026-09-29T05:14:25Z",
   "previous_partial_preserved": true,
   "PREVIOUS_PARTIAL_RUN_ID": "advanced-csv-20260929T041500Z",
-  "execution_authorized": false
+  "execution_authorized": false,
+  "PARTIAL_REASON": "Immutable GitHub history creation was blocked by connector safety checks; Library upload also unavailable.",
+  "BACKLOG_DURABLE": false,
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED"
 }
