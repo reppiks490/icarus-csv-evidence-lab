@@ -1,16 +1,14 @@
 {
-  "schema_version": "scheduler-heartbeat-ready-v1",
+  "schema_version": "scheduler-heartbeat-v2",
   "lane": "advanced_csv",
   "scheduler_title": "Advanced CSV Data Collector",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "RUN_ID": null,
-  "RUN_STATUS": "IDLE_READY",
-  "PREVIOUS_PARTIAL_RUN_ID": "advanced-csv-20260929T051500Z",
+  "RUN_ID": "advanced-csv-20260929T061500Z",
+  "RUN_STATUS": "IN_PROGRESS",
+  "scheduled_for_utc": "2026-09-29T06:15:00Z",
+  "EXPECTED_CADENCE_MINUTES": 60,
+  "previous_partial_run_id": "advanced-csv-20260929T051500Z",
   "previous_partial_preserved": true,
-  "recovery_note": "051500Z partial failure receipt and fallback probe are durably preserved in history_ledger.jsonl; next invocation uses advanced-csv-persistence-v3 primary-or-ledger history.",
-  "history_ledger_path": "automation_intelligence/advanced_csv/history_ledger.jsonl",
-  "history_ledger_blob_sha": "72c18266c2dc924862be180b58c7df7f218473b4",
-  "BACKLOG_DURABLE": false,
-  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
+  "persistence_protocol": "advanced-csv-persistence-v3",
   "execution_authorized": false
 }
