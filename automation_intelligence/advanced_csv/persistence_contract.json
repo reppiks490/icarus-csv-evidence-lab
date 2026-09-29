@@ -1,0 +1,33 @@
+{
+  "schema_version": "advanced-csv-persistence-v3",
+  "repository": "reppiks490/icarus-csv-evidence-lab",
+  "branch": "main",
+  "root": "automation_intelligence/advanced_csv",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "scheduler_title": "Advanced CSV Data Collector",
+  "primary_history": {
+    "mode": "immutable_per_run_file",
+    "path_pattern": "automation_intelligence/advanced_csv/history/<RUN_ID>.json",
+    "create_then_readback_required": true
+  },
+  "fallback_history": {
+    "enabled": true,
+    "trigger": "new immutable history file creation blocked by connector safety/write guard",
+    "mode": "append_only_fresh_sha_ledger",
+    "path": "automation_intelligence/advanced_csv/history_ledger.jsonl",
+    "append_rule": "Fetch current ledger and blob SHA; append exactly one compact JSON line to the exact prior bytes; entry must include previous_ledger_blob_sha equal to fetched ledger blob SHA; update_file with that fresh SHA; re-fetch; verify old content is exact prefix and RUN_ID occurs exactly once in the appended suffix.",
+    "completed_run_rule": "A completed run may use ledger fallback only when the ledger entry contains the exact complete finalized payload and the re-fetched ledger is verified. latest/state/manifest may then advance and must record history_mode=ledger_fallback and ledger_blob_sha.",
+    "partial_run_rule": "If the complete finalized payload is unavailable, append only a truthful partial/failure receipt and do not advance latest/state/manifest."
+  },
+  "library_backup": {
+    "role": "secondary_independent",
+    "failure_is_non_blocking_for_github_finalization": true,
+    "verified_only_after_exact_readback": true
+  },
+  "pointer_rules": {
+    "latest_state_manifest_advance_only_after_verified_primary_or_fallback_history": true,
+    "heartbeat_finalized_only_after_all_required_github_pointers_readback": true
+  },
+  "prior_partial_runs_do_not_block_new_hourly_runs": true,
+  "execution_authorized": false
+}
