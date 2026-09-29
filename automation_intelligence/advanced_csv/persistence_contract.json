@@ -1,5 +1,5 @@
 {
-  "schema_version": "advanced-csv-persistence-v3",
+  "schema_version": "advanced-csv-persistence-v4",
   "repository": "reppiks490/icarus-csv-evidence-lab",
   "branch": "main",
   "root": "automation_intelligence/advanced_csv",
@@ -15,8 +15,8 @@
     "trigger": "new immutable history file creation blocked by connector safety/write guard",
     "mode": "append_only_fresh_sha_ledger",
     "path": "automation_intelligence/advanced_csv/history_ledger.jsonl",
-    "append_rule": "Fetch current ledger and blob SHA; append exactly one compact JSON line to the exact prior bytes; entry must include previous_ledger_blob_sha equal to fetched ledger blob SHA; update_file with that fresh SHA; re-fetch; verify old content is exact prefix and RUN_ID occurs exactly once in the appended suffix.",
-    "completed_run_rule": "A completed run may use ledger fallback only when the ledger entry contains the exact complete finalized payload and the re-fetched ledger is verified. latest/state/manifest may then advance and must record history_mode=ledger_fallback and ledger_blob_sha.",
+    "append_rule": "Fetch current ledger and blob SHA; preserve exact prior bytes; append exactly one compact JSON object plus newline; entry must include previous_ledger_blob_sha equal to fetched SHA; update with that fresh SHA; re-fetch; verify old content is exact prefix; parse the appended suffix as exactly one JSONL record whose top-level RUN_ID equals the intended RUN_ID. Nested RUN_ID fields inside payload are allowed and must match; never use raw substring-count uniqueness.",
+    "completed_run_rule": "A completed run may use ledger fallback only when the record contains the exact complete finalized payload and structural readback succeeds. latest/state/manifest may then advance and record history_mode=ledger_fallback and ledger_blob_sha.",
     "partial_run_rule": "If the complete finalized payload is unavailable, append only a truthful partial/failure receipt and do not advance latest/state/manifest."
   },
   "library_backup": {
