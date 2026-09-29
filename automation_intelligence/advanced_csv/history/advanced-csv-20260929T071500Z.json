@@ -1,0 +1,62 @@
+{
+  "schema_version": "advanced-csv-run-v3",
+  "RUN_ID": "advanced-csv-20260929T071500Z",
+  "RUN_STATUS": "RUN_PERSISTED",
+  "run_start_time": "2026-09-29T07:11:40Z",
+  "run_end_time": "2026-09-29T07:15:00Z",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "scheduler_title": "Advanced CSV Data Collector",
+  "PREVIOUS_SUCCESSFUL_RUN_ID": "advanced-csv-20260929T061500Z",
+  "EXPECTED_CADENCE_MINUTES": 60,
+  "PASSES_COMPLETED": 10,
+  "NET_NEW_DELTA": {
+    "corpus": "NO_NEW_CORPUS_EVIDENCE",
+    "reconciliation": "Retained verified ten-archive baseline; no stronger evidence justified recount.",
+    "mnq_massive_continuous": "Byte overlap against 542-content baseline remains unresolved.",
+    "continuity": "Prior persisted and partial history preserved; no prior incident suppressed this invocation."
+  },
+  "PREVIOUS_STATE_LOADED": true,
+  "STATE_CONTINUITY_STATUS": "VERIFIED_FROM_BINDING_CONTRACT_HEARTBEAT_LATEST_STATE_MANIFEST_HISTORY_LEDGER",
+  "HISTORICAL_BACKFILL_STATUS": "UNCHANGED_PARTIAL",
+  "authoritative_checkpoint": {
+    "physical_csv_members": 659,
+    "logical_rows": 13788256,
+    "distinct_sha256_contents": 542,
+    "extracted_physical_files": 803
+  },
+  "provenance_source_identities": {
+    "baseline": "ten-archive Advanced CSV/NEXUS checkpoint",
+    "candidate_branch": {
+      "provider": "Massive",
+      "venue": "CME futures",
+      "instrument": "MNQ",
+      "continuous_status": "continuous candidate",
+      "byte_overlap_against_baseline": "unresolved"
+    }
+  },
+  "schema_representation_availability_findings": [
+    "Physical-content identity remains separate from semantic identity.",
+    "No new schema, provenance, timestamp, availability, duplicate, header, row-shape, chart/export, aggregation, or source-quality evidence was acquired this cycle.",
+    "Per-contract and roll-boundary identity remains separate from continuous-series identity; deterministic derivatives are not counted as independent observations."
+  ],
+  "conflicts_gaps": [
+    "Complete 542-member SHA-256 baseline manifest is not available in current durable repository state.",
+    "MNQ Massive candidate byte overlap against that baseline remains unresolved."
+  ],
+  "persistence_evidence": {
+    "startup_heartbeat_commit": "65e617bb3bce779ac4577787498dfb6f6cdf8d29",
+    "startup_heartbeat_blob": "a8b3cc26ff64fe74309975892ec364d53e77d81c",
+    "startup_readback_verified": true,
+    "history_mode": "immutable_per_run_file",
+    "history_path": "automation_intelligence/advanced_csv/history/advanced-csv-20260929T071500Z.json"
+  },
+  "BACKLOG_DURABLE": false,
+  "LIBRARY_STATUS": "LIBRARY_UNVERIFIED",
+  "history_mode": "immutable_per_run_file",
+  "CLEAN_GITHUB_RUN": true,
+  "FINALIZATION_STATUS": "GITHUB_PRIMARY_TARGET_LIBRARY_UNVERIFIED",
+  "raw_owner_data_written": false,
+  "downstream_models_modified": false,
+  "production_code_modified": false,
+  "execution_authorized": false
+}
