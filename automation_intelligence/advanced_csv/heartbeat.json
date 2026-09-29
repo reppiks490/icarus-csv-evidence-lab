@@ -1,12 +1,11 @@
 {
   "schema_version": "advanced-csv-heartbeat-v2",
   "engine": "advanced_csv",
-  "RUN_ID": null,
-  "RUN_STATUS": "IDLE_READY",
+  "RUN_ID": "advanced-csv-20260929T031500Z",
+  "RUN_STATUS": "IN_PROGRESS",
+  "EXPECTED_CADENCE_MINUTES": 60,
+  "scheduler_title": "Advanced CSV Data Collector",
+  "started_at_utc": "2026-09-29T03:18:51Z",
   "PREVIOUS_STRANDED_RUN_ID": "advanced-csv-20260929T001500Z",
-  "INCIDENT_PATH": "automation_intelligence/advanced_csv/incidents/advanced-csv-20260929T001500Z.json",
-  "NEXT_RUN_REQUIREMENT": "Fresh scheduler invocation must write and re-read IN_PROGRESS before substantive work.",
-  "execution_authorized": false,
-  "SECONDARY_LIBRARY_BACKUP_STATUS": "UNVERIFIED_REQUIRES_EXACT_READBACK",
-  "PREVIOUS_SUCCESSFUL_RUN_ID": "ADVCSV-NEXUS-20260928-MANUAL-CONTINUE-MNQ-04"
+  "execution_authorized": false
 }
