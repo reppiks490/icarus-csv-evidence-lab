@@ -20,8 +20,17 @@
   "last_scheduler_incident_run_id": "advanced-csv-20260929T181500Z",
   "last_scheduler_incident_preserved_in_ledger": true,
   "runtime_contract": "automation_intelligence/advanced_csv/runtime_v5_contract.json",
-  "runtime_protocol": "git_commit_staging_v5",
+  "runtime_protocol": "scheduler-v5.4-minimal-durability",
   "staging": "automation_intelligence/advanced_csv/staging.json",
   "finalization_state": "automation_intelligence/advanced_csv/finalization_state.json",
-  "compatibility_mirrors_block_success": false
+  "compatibility_mirrors_block_success": false,
+  "startup_state": "automation_intelligence/advanced_csv/startup_state.json",
+  "heartbeat": "automation_intelligence/advanced_csv/heartbeat.json",
+  "canonical_closure": [
+    "startup_state",
+    "finalization_state",
+    "heartbeat"
+  ],
+  "staging_status": "DEPRECATED_NONCANONICAL",
+  "compatibility_mirrors_nonblocking": true
 }
