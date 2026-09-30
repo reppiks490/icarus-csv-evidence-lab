@@ -1,15 +1,1 @@
-{
-  "schema_version": "scheduler-heartbeat-v5.2",
-  "lane": "advanced_csv",
-  "scheduler_title": "Advanced CSV Data Collector",
-  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "RUN_ID": "advanced-csv-20260929T231500Z",
-  "RUN_STATUS": "RUN_PERSISTED",
-  "history_mode": "git_commit_staging",
-  "staging_commit_sha": "35567dde8a4b92c3aaced1d845342f88d986a1bb",
-  "staging_blob_sha": "3fea2a47ef64325900a6dfe782597e01604c2d7f",
-  "finalization_state_blob_sha": "653bb0f2174bdb2973587939b9a3dabc1f74d132",
-  "BACKLOG_DURABLE": false,
-  "next_hourly_invocation_allowed": true,
-  "execution_authorized": false
-}
+{"schema_version":"scheduler-heartbeat-v5.2","RUN_ID":"advanced-csv-20260930T011500Z","RUN_STATUS":"RUN_PERSISTED","scheduler_id":"6abaef9d5c28819190d98a5af7f308b8","staging_commit_sha":"d2fec5cffcc96fa0d20b520c62ad7861cc3fecb0","staging_blob_sha":"05852a3279916c583643dcf6e010fe6936cb459c","finalization_state_blob_sha":"fc1b8eb5b4ab5b965c7855e96135173934866fc1","execution_authorized":false}
