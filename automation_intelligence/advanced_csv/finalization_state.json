@@ -1,10 +1,1 @@
-{
-  "schema_version": "scheduler-finalization-v5.2",
-  "RUN_ID": "advanced-csv-20260929T231500Z",
-  "RUN_STATUS": "FINALIZATION_VERIFIED",
-  "history_mode": "git_commit_staging",
-  "staging_commit_sha": "35567dde8a4b92c3aaced1d845342f88d986a1bb",
-  "staging_blob_sha": "3fea2a47ef64325900a6dfe782597e01604c2d7f",
-  "BACKLOG_DURABLE": false,
-  "execution_authorized": false
-}
+{"schema_version":"scheduler-finalization-v5.2","RUN_ID":"advanced-csv-20260930T011500Z","RUN_STATUS":"FINALIZATION_VERIFIED","history_mode":"git_commit_staging","staging_commit_sha":"d2fec5cffcc96fa0d20b520c62ad7861cc3fecb0","staging_blob_sha":"05852a3279916c583643dcf6e010fe6936cb459c","BACKLOG_DURABLE":false,"execution_authorized":false}
