@@ -38,6 +38,10 @@ jobs:
         shell: bash
         run: sleep 20
 
+      - name: Refresh main after grace
+        shell: bash
+        run: git pull --rebase origin main
+
       - name: Reconcile Advanced CSV runtime
         run: >-
           python tools/restored_five_durability_watchdog.py
