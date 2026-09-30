@@ -9,7 +9,10 @@ on:
       - ".github/workflows/restored-five-durability-watchdog.yml"
       - "automation_intelligence/advanced_csv/finalization_state.json"
   schedule:
-    - cron: "*/10 * * * *"
+    # Two independent 10-minute streams, staggered by 5 minutes. Effective
+    # 5-minute coverage reduces dependence on any one delayed/dropped cron.
+    - cron: "2-52/10 * * * *"
+    - cron: "7-57/10 * * * *"
   workflow_dispatch:
 
 permissions:
