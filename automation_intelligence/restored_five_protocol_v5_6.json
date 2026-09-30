@@ -1,0 +1,10 @@
+{
+  "schema_version": "restored-five-protocol-v5.6",
+  "authority_scope": "Advanced CSV lane local mirror of restored-five protocol",
+  "execution_authorized": false,
+  "finalization_semantics": "DURABILITY_RECEIPT_ONLY",
+  "evidence_authority": "automation_intelligence/advanced_csv/evidence_state.json",
+  "rule": "RUN_PERSISTED proves durable slot receipt, not substantive evidence completion. Substantive evidence requires explicit evidence_state EVIDENCE_STATUS.",
+  "scheduler_authority": "external; worker must never call scheduler/automation/task-management tools",
+  "stale_startup_recovery_minutes": 30
+}
