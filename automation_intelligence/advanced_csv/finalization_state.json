@@ -1,10 +1,1 @@
-{
-  "schema_version": "scheduler-finalization-v5.2",
-  "RUN_ID": "advanced-csv-20260930T021500Z",
-  "RUN_STATUS": "FINALIZATION_VERIFIED",
-  "history_mode": "git_commit_staging",
-  "staging_commit_sha": "bc9b25ad22e74d39aa54415cee3660c9c58beb8c",
-  "staging_blob_sha": "b112dcfbaccd004787d8d03a5079f8e9d2a24ed9",
-  "BACKLOG_DURABLE": false,
-  "execution_authorized": false
-}
+{"schema_version":"scheduler-finalization-v5.4","RUN_ID":"advanced-csv-20260930T101500Z","RUN_STATUS":"FINALIZATION_VERIFIED","history_mode":"git_commit_finalization","payload":{"result":"NO_NEW_EVIDENCE","evidence":"Baseline retained: 659 physical CSV members; 13,788,256 logical rows; 542 distinct SHA-256 contents; 803 extracted physical files. Optional corpus inventory unavailable; no stronger evidence established.","gaps":"MNQ Massive byte overlap unresolved.","NEXT":"Reconcile fresh corpus/source evidence on a later scheduled invocation if available."},"BACKLOG_DURABLE":false,"execution_authorized":false}
