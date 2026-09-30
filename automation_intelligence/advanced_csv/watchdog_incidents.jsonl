@@ -1,0 +1,1 @@
+{"schema_version":"restored-five-watchdog-incident-v2","record_type":"STRANDED_STARTUP_RECOVERED","lane":"advanced_csv","scheduler_id":"6abaef9d5c28819190d98a5af7f308b8","RUN_ID":"advanced-csv-20260930T201500Z","observed_at_utc":"2026-09-30T20:45:00Z","reason":"NO_SAME_RUN_FINALIZATION_GT_30M","execution_authorized":false}
