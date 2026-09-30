@@ -1,7 +1,21 @@
 {
   "schema_version": "scheduler-staging-v5.2",
   "RUN_ID": "advanced-csv-20260930T021500Z",
-  "RUN_STATUS": "STARTED",
+  "RUN_STATUS": "STAGED_FINAL",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "execution_authorized": false
+  "execution_authorized": false,
+  "evidence_result": "NO_NEW_EVIDENCE",
+  "baseline": {
+    "physical_csv_members": 659,
+    "logical_rows": 13788256,
+    "distinct_sha256_contents": 542,
+    "extracted_physical_files": 803,
+    "mnq_massive_byte_overlap": "UNRESOLVED"
+  },
+  "bounded_collection": {
+    "calls": 2,
+    "corpus_inventory": "NOT_FOUND",
+    "source_registry": "NOT_FOUND"
+  },
+  "BACKLOG_DURABLE": false
 }
