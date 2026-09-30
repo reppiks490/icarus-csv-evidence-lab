@@ -1,0 +1,8 @@
+{
+  "schema_version": "scheduler-evidence-v5.6-ready",
+  "lane": "advanced_csv",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "RUN_ID": null,
+  "EVIDENCE_STATUS": "EMPTY_READY",
+  "execution_authorized": false
+}
