@@ -1,6 +1,8 @@
 {
-  "schema_version": "scheduler-heartbeat-v5.7-canary-ready",
-  "RUN_ID": null,
-  "RUN_STATUS": "EMPTY_READY",
+  "schema_version": "scheduler-heartbeat-v5.7-canary",
+  "RUN_ID": "CSV-V5.7-CANARY-20260930T204700Z",
+  "RUN_STATUS": "RUN_PERSISTED",
+  "finalization_commit_sha": "a08e6aa86f9eb07a4d357767972e9a17e44a2e12",
+  "finalization_state_blob_sha": "6b8360ecb3b790f670199f7e5e6bd5482d226ce1",
   "execution_authorized": false
 }
