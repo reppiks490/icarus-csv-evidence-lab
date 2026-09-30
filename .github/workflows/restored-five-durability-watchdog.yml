@@ -37,7 +37,9 @@ jobs:
           python tools/restored_five_durability_watchdog.py
           --repo-root .
           --stale-minutes 30
-          --lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8"
+          --monitor-grace-minutes 12
+          --monitor-after "2026-09-30T21:00:00Z"
+          --lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8|15|advanced-csv"
 
       - name: Stage only Advanced CSV runtime state
         shell: bash
