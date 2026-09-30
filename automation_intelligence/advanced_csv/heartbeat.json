@@ -1,13 +1,1 @@
-{
-  "schema_version": "scheduler-heartbeat-v5.2-recovery",
-  "lane": "advanced_csv",
-  "scheduler_title": "Advanced CSV Data Collector",
-  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "RUN_ID": "advanced-csv-20260930T021500Z",
-  "RUN_STATUS": "RUN_PERSISTED",
-  "staging_commit_sha": "bc9b25ad22e74d39aa54415cee3660c9c58beb8c",
-  "staging_blob_sha": "b112dcfbaccd004787d8d03a5079f8e9d2a24ed9",
-  "finalization_state_blob_sha": "3a8afd0c6239c89a912cbd40a5de8e068bec982d",
-  "recovery_note": "02:15 run was fully staged and finalized; heartbeat closure was recovered after exact historical readback. Later 03:15 partial and 04:15 trigger gap remain preserved in history_ledger.jsonl.",
-  "execution_authorized": false
-}
+{"schema_version":"scheduler-heartbeat-v5.4","RUN_ID":"advanced-csv-20260930T101500Z","RUN_STATUS":"RUN_PERSISTED","finalization_commit_sha":"9d8efc0b396dc0b076d2b94803b501c699f84344","finalization_state_blob_sha":"10db4a45fe7d30e293a214b288351c39bd2c0c58","execution_authorized":false}
