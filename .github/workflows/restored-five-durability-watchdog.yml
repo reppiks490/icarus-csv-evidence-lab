@@ -1,0 +1,65 @@
+name: restored-five-durability-watchdog
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: restored-five-durability-watchdog
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Reconcile Advanced CSV runtime
+        run: >-
+          python tools/restored_five_durability_watchdog.py
+          --repo-root .
+          --stale-minutes 30
+          --lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8"
+
+      - name: Stage only Advanced CSV runtime state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add automation_intelligence/advanced_csv/startup_state.json automation_intelligence/advanced_csv/heartbeat.json
+
+          if git diff --cached --quiet; then
+            echo "WATCHDOG_NO_CHANGE=1" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          staged="$(git diff --cached --name-only)"
+          invalid="$(printf '%s\n' "$staged" | grep -Ev '^automation_intelligence/advanced_csv/(startup_state|heartbeat)\.json$' || true)"
+          if [ -n "$invalid" ]; then
+            echo "Refusing out-of-scope watchdog mutation:" >&2
+            printf '%s\n' "$invalid" >&2
+            exit 1
+          fi
+          echo "WATCHDOG_NO_CHANGE=0" >> "$GITHUB_ENV"
+
+      - name: Commit verified recovery state
+        if: env.WATCHDOG_NO_CHANGE != '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "automation: Advanced CSV durability recovery $(date -u +%Y%m%dT%H%M%SZ) [skip ci]"
+          git push origin HEAD:main
