@@ -1,0 +1,21 @@
+{
+  "schema_version": "restored-five-native-control-v1",
+  "control_plane_id": "restored-five-native-liveness-v1",
+  "repository": "reppiks490/icarus-csv-evidence-lab",
+  "namespace_root": "automation_intelligence/restored_five_native",
+  "timezone": "America/Chicago",
+  "activated_at_utc": "2026-09-30T22:00:00Z",
+  "grace_minutes": 8,
+  "catchup_horizon_minutes": 180,
+  "execution_authorized": false,
+  "lanes": [
+    {
+      "name": "advanced_csv",
+      "title": "Advanced CSV Data Collector",
+      "minute": 15,
+      "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+      "worker_root": "automation_intelligence/advanced_csv",
+      "run_prefix": "advanced-csv"
+    }
+  ]
+}
