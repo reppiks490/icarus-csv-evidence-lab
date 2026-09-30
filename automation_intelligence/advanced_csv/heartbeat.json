@@ -1,1 +1,8 @@
-{"schema_version":"scheduler-heartbeat-v5.5","RUN_ID":"advanced-csv-20260930T181500Z","RUN_STATUS":"RUN_PERSISTED","finalization_commit_sha":"0297d665fc5ddf3884ce6b1e2805493ca9195d0e","finalization_state_blob_sha":"9fdd00df553c34a28efa191fe4c71585c6819fa7","execution_authorized":false}
+{
+  "schema_version": "scheduler-heartbeat-watchdog-v2",
+  "RUN_ID": "advanced-csv-20260930T201500Z",
+  "RUN_STATUS": "PARTIAL_PERSISTENCE",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "reason": "WATCHDOG_STALE_STARTUP_NO_SAME_RUN_FINALIZATION_GT_30M",
+  "execution_authorized": false
+}
