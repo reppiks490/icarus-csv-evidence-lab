@@ -1,9 +1,1 @@
-{
-  "RUN_ID": null,
-  "RUN_STATUS": "EMPTY_READY",
-  "execution_authorized": false,
-  "lane": "advanced_csv",
-  "previous_completed_run_id": "advanced-csv-20260930T141500Z",
-  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "schema_version": "scheduler-startup-v5.4-ready"
-}
+{"schema_version":"scheduler-startup-v5.5","RUN_ID":"advanced-csv-20260930T151500Z","RUN_STATUS":"STARTED","scheduler_id":"6abaef9d5c28819190d98a5af7f308b8","execution_authorized":false}
