@@ -1,7 +1,9 @@
 {
-  "schema_version": "scheduler-staging-v5.2",
-  "RUN_ID": "advanced-csv-20260930T031500Z",
-  "RUN_STATUS": "STARTED",
+  "schema_version": "scheduler-staging-v5.3-ready",
+  "lane": "advanced_csv",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "RUN_ID": null,
+  "RUN_STATUS": "EMPTY_READY",
+  "previous_partial_run_id": "advanced-csv-20260930T031500Z",
   "execution_authorized": false
 }
