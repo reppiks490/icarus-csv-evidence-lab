@@ -7,6 +7,7 @@ on:
       - "tools/restored_five_durability_watchdog.py"
       - "tools/test_restored_five_durability_watchdog.py"
       - ".github/workflows/restored-five-durability-watchdog.yml"
+      - "automation_intelligence/advanced_csv/**"
       - "automation_intelligence/advanced_csv/finalization_state.json"
   schedule:
     # Two independent 10-minute streams, staggered by 5 minutes. Effective
