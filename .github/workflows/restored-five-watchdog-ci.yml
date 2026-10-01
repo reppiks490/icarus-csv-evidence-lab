@@ -1,0 +1,31 @@
+name: restored-five-watchdog-ci
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "tools/restored_five_durability_watchdog.py"
+      - "tools/test_restored_five_durability_watchdog.py"
+      - ".github/workflows/restored-five-durability-watchdog.yml"
+      - ".github/workflows/restored-five-watchdog-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "tools/restored_five_durability_watchdog.py"
+      - "tools/test_restored_five_durability_watchdog.py"
+      - ".github/workflows/restored-five-durability-watchdog.yml"
+      - ".github/workflows/restored-five-watchdog-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  watchdog-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run restored-five watchdog tests
+        run: python tools/test_restored_five_durability_watchdog.py -q

@@ -62,6 +62,7 @@ jobs:
           --stale-minutes 30
           --monitor-grace-minutes 12
           --monitor-after "2026-09-30T21:00:00Z"
+          --stabilization-fallback
           --lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8|15|advanced-csv"
 
       - name: Stage only Advanced CSV runtime state
@@ -70,6 +71,7 @@ jobs:
           set -euo pipefail
           paths=(
             automation_intelligence/advanced_csv/startup_state.json
+            automation_intelligence/advanced_csv/finalization_state.json
             automation_intelligence/advanced_csv/heartbeat.json
             automation_intelligence/advanced_csv/watchdog_incidents.jsonl
           )
@@ -85,7 +87,7 @@ jobs:
           fi
 
           staged="$(git diff --cached --name-only)"
-          invalid="$(printf '%s\n' "$staged" | grep -Ev '^automation_intelligence/advanced_csv/(startup_state|heartbeat)\.json$|^automation_intelligence/advanced_csv/watchdog_incidents\.jsonl$' || true)"
+          invalid="$(printf '%s\n' "$staged" | grep -Ev '^automation_intelligence/advanced_csv/(startup_state|finalization_state|heartbeat)\.json$|^automation_intelligence/advanced_csv/watchdog_incidents\.jsonl$' || true)"
           if [ -n "$invalid" ]; then
             echo "Refusing out-of-scope watchdog mutation:" >&2
             printf '%s\n' "$invalid" >&2

@@ -18,6 +18,7 @@ from restored_five_durability_watchdog import (
     monitor_missing_evidence,
     monitor_missing_receipt,
     reconcile_lane,
+    recover_stabilization_receipt,
 )
 
 
@@ -442,6 +443,81 @@ class WatchdogTests(unittest.TestCase):
                 "payload": {
                     "result": "NO_NEW_EVIDENCE_YET",
                     "NEXT": "Durability proven; substantive evidence remains deferred during stabilization."
+                },
+                "execution_authorized": False,
+            })
+            write_json(root / "evidence_state.json", {})
+            changed = monitor_missing_evidence(
+                repo, "lane", "lane", "sched", 5, "lane", 20,
+                datetime(2026, 9, 30, 21, 0, tzinfo=timezone.utc),
+                datetime(2026, 9, 30, 21, 26, tzinfo=timezone.utc),
+            )
+            self.assertEqual(changed, [])
+
+
+    def test_recover_stabilization_receipt_writes_truthful_fallback(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td)
+            root = repo / "lane"
+            write_json(root / "finalization_state.json", {
+                "schema_version": "scheduler-finalization-v5.7",
+                "RUN_ID": "lane-20260930T200500Z",
+                "RUN_STATUS": "RUN_PERSISTED",
+                "completion_semantics": "DURABILITY_RECEIPT_ONLY",
+                "execution_authorized": False,
+            })
+            changed = recover_stabilization_receipt(
+                repo, "lane", "lane", "sched", 5, "lane", 12,
+                datetime(2026, 9, 30, 21, 0, tzinfo=timezone.utc),
+                datetime(2026, 9, 30, 21, 18, tzinfo=timezone.utc),
+            )
+            self.assertEqual(changed, ["lane/finalization_state.json"])
+            receipt = json.loads((root / "finalization_state.json").read_text())
+            self.assertEqual(receipt["RUN_ID"], "lane-20260930T210500Z")
+            self.assertEqual(receipt["RUN_STATUS"], "RUN_PERSISTED")
+            self.assertEqual(receipt["work_status"], "WATCHDOG_FALLBACK_PERSISTED")
+            self.assertEqual(receipt["receipt_origin"], "github_watchdog_stabilization_fallback")
+            self.assertFalse(receipt["worker_execution_observed"])
+            self.assertFalse(receipt["execution_authorized"])
+
+    def test_recover_stabilization_receipt_never_regresses_newer_pointer(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td)
+            root = repo / "lane"
+            write_json(root / "finalization_state.json", {
+                "schema_version": "scheduler-finalization-v5.7",
+                "RUN_ID": "lane-20260930T220500Z",
+                "RUN_STATUS": "RUN_PERSISTED",
+                "completion_semantics": "DURABILITY_RECEIPT_ONLY",
+                "execution_authorized": False,
+            })
+            changed = recover_stabilization_receipt(
+                repo, "lane", "lane", "sched", 5, "lane", 12,
+                datetime(2026, 9, 30, 21, 0, tzinfo=timezone.utc),
+                datetime(2026, 9, 30, 21, 18, tzinfo=timezone.utc),
+            )
+            self.assertEqual(changed, [])
+            receipt = json.loads((root / "finalization_state.json").read_text())
+            self.assertEqual(receipt["RUN_ID"], "lane-20260930T220500Z")
+
+
+    def test_watchdog_fallback_receipt_intentionally_defers_evidence_alarm(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td)
+            root = repo / "lane"
+            expected = "lane-20260930T210500Z"
+            write_json(root / "finalization_state.json", {
+                "schema_version": "scheduler-finalization-v5.7",
+                "RUN_ID": expected,
+                "RUN_STATUS": "RUN_PERSISTED",
+                "completion_semantics": "DURABILITY_RECEIPT_ONLY",
+                "history_mode": "git_commit_finalization",
+                "work_status": "WATCHDOG_FALLBACK_PERSISTED",
+                "receipt_origin": "github_watchdog_stabilization_fallback",
+                "worker_execution_observed": False,
+                "payload": {
+                    "result": "SCHEDULER_WORKER_RECEIPT_MISSED",
+                    "NEXT": "No substantive evidence was produced; the stabilization slot was durably recovered by the repository watchdog."
                 },
                 "execution_authorized": False,
             })
