@@ -1,1 +1,10 @@
-{"RUN_ID":"advanced-csv-20261001T061500Z","RUN_STATUS":"RUN_PERSISTED","scheduler_id":"6abaef9d5c28819190d98a5af7f308b8","finalization_commit_sha":"204dededf05c9f385725e1b6b5357ae58c5bd8fe","finalization_state_blob_sha":"f6b069322196e2d41ea15396533062341ec95838","execution_authorized":false}
+{
+  "RUN_ID": "advanced-csv-20261001T071500Z",
+  "RUN_STATUS": "RUN_PERSISTED",
+  "execution_authorized": false,
+  "finalization_commit_sha": "ee74ee318c0a891190098eeb533e009f4f382ae3",
+  "finalization_state_blob_sha": "d3a1c1837f533d75e0607f9a5a6a014db3761c12",
+  "recovered_by": "restored-five-durability-watchdog",
+  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
+  "schema_version": "scheduler-heartbeat-watchdog-v2"
+}
