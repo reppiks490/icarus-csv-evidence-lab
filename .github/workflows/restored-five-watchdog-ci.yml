@@ -41,5 +41,15 @@ jobs:
               tail -n 120 /tmp/watchdog-tests.log
               echo '~~~'
             } >> "$GITHUB_STEP_SUMMARY"
+            cp /tmp/watchdog-tests.log watchdog-tests.log
             exit "$status"
           fi
+
+      - name: Upload watchdog failure log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: watchdog-test-failure
+          path: watchdog-tests.log
+          if-no-files-found: error
+          retention-days: 1
