@@ -26,6 +26,21 @@ py -3 -m csv_evidence.cli reconcile 'C:\path\to\parallax-ten-archives.json' 'C:\
 
 The scan is read-only. `reports/`, `private-data/`, CSV, ZIP, and XLSX files are ignored by Git. Do not commit account data, paid-feed exports, secrets, or raw market files here.
 
+## ICARUS repository federation
+
+The active ICARUS engine may consume this repository's **status/evidence receipts only** through the machine-readable contract at
+`automation_intelligence/advanced_csv/icarus_consumer_contract.json`.
+
+The consumer contract deliberately keeps these meanings separate:
+
+- `heartbeat.RUN_STATUS=RUN_PERSISTED` proves a durable run receipt only.
+- substantive evidence authority remains `evidence_state.EVIDENCE_STATUS`.
+- raw owner market data is not transferred into ICARUS by this federation.
+- no CSV artifact, model, strategy, paper order, live order, or execution authority is auto-promoted.
+- ICARUS verifies the Git blob identity of every consumed receipt and exposes pointer disagreement instead of silently reconciling it.
+
+This lets the actively running CSV evidence lane collaborate with ICARUS without collapsing durability, evidence, data admission, model qualification, and trading authority into one signal.
+
 ## Current evidence
 
 The first local probe read three owner exports without modifying them: two NQ 20-minute files and one GC 20-minute file. All had five OHLC-like columns and parsed, but the NQ files differed by 11 rows and had different SHA-256 hashes. Chart type, roll mode, session, timezone, provider, and first-known availability remain unverified. This is not a parity or profitability result.
