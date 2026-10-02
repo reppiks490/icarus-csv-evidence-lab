@@ -28,4 +28,18 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run restored-five watchdog tests
-        run: python tools/test_restored_five_durability_watchdog.py -q
+        shell: bash
+        run: |
+          set +e
+          python tools/test_restored_five_durability_watchdog.py -q 2>&1 | tee /tmp/watchdog-tests.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            {
+              echo "### restored-five watchdog failure"
+              echo '~~~text'
+              tail -n 120 /tmp/watchdog-tests.log
+              echo '~~~'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit "$status"
+          fi
