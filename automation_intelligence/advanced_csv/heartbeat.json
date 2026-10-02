@@ -1,8 +1,9 @@
 {
-  "RUN_ID": "advanced-csv-20261002T151500Z",
+  "RUN_ID": "advanced-csv-20261002T191500Z",
   "RUN_STATUS": "RUN_PERSISTED",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "finalization_commit_sha": "8e975ddc18c02b00662291c10acbae15d37016fd",
-  "finalization_state_blob_sha": "71d1fa5ca1da957a3db48e9847bafc5bfaccf34a",
+  "finalization_commit_sha": "0895141219148364baefa445b04a30d705ae68e2",
+  "finalization_state_blob_sha": "9fe319b026328906f3d7e113b6bd7bf34f9816c3",
+  "recovered_by": "chatgpt-verified-heartbeat-repair",
   "execution_authorized": false
 }
