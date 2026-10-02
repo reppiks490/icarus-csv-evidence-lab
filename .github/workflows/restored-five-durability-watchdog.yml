@@ -118,9 +118,9 @@ jobs:
           # pushed, so a heartbeat written in that same commit cannot truthfully
           # bind the new finalization identity. Re-run only the 3-field lane
           # reconciliation after the finalization commit exists.
-          python tools/restored_five_durability_watchdog.py             --repo-root .             --stale-minutes 30             --receipt-first-stale-minutes 12             --lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8"
+          python tools/restored_five_durability_watchdog.py --repo-root . --stale-minutes 30 --receipt-first-stale-minutes 12 --lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8"
 
-          git add --             automation_intelligence/advanced_csv/startup_state.json             automation_intelligence/advanced_csv/heartbeat.json
+          git add -- automation_intelligence/advanced_csv/startup_state.json automation_intelligence/advanced_csv/heartbeat.json
 
           if git diff --cached --quiet; then
             echo "No post-commit heartbeat mirror repair required."
@@ -128,7 +128,7 @@ jobs:
           fi
 
           staged="$(git diff --cached --name-only)"
-          invalid="$(printf '%s\n' "$staged" | grep -Ev '^automation_intelligence/advanced_csv/(startup_state|heartbeat)\.json || true)"
+          invalid="$(printf '%s\n' "$staged" | grep -Ev '^automation_intelligence/advanced_csv/(startup_state|heartbeat)\.json$' || true)"
           if [ -n "$invalid" ]; then
             echo "Refusing out-of-scope post-commit heartbeat mutation:" >&2
             printf '%s\n' "$invalid" >&2
