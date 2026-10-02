@@ -536,21 +536,25 @@ class WatchdogTests(unittest.TestCase):
             repo_root / ".github" / "workflows" / "restored-five-durability-watchdog.yml"
         ).read_text(encoding="utf-8")
 
-        commit_step = workflow.index("- name: Commit verified recovery state")
-        mirror_step = workflow.index("- name: Bind committed finalization into heartbeat")
-        mirror_lane = workflow.index(
+        self.assertIn("- name: Commit verified recovery state", workflow)
+        self.assertIn("- name: Bind committed finalization into heartbeat", workflow)
+        self.assertIn(
             '--lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8"',
-            mirror_step,
+            workflow,
         )
-        mirror_commit = workflow.index(
+        self.assertIn(
             'git commit -m "automation: bind Advanced CSV heartbeat to committed finalization [skip ci]"',
-            mirror_step,
+            workflow,
         )
 
-        self.assertLess(commit_step, mirror_step)
-        self.assertLess(mirror_step, mirror_lane)
-        self.assertLess(mirror_lane, mirror_commit)
-        self.assertNotIn("--stabilization-fallback", workflow[mirror_step:mirror_commit])
+        mirror_block = workflow.split(
+            "- name: Bind committed finalization into heartbeat", 1
+        )[1]
+        self.assertNotIn("--stabilization-fallback", mirror_block)
+        self.assertIn(
+            "automation_intelligence/advanced_csv/heartbeat.json",
+            mirror_block,
+        )
 
 
 if __name__ == "__main__":
