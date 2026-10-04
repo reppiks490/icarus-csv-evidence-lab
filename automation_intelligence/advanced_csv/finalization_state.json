@@ -1,16 +1,15 @@
 {
-  "RUN_ID": "advanced-csv-20261004T131500Z",
+  "schema_version": "scheduler-finalization-v5.7",
+  "RUN_ID": "advanced-csv-20261004T161500Z",
   "RUN_STATUS": "RUN_PERSISTED",
   "completion_semantics": "DURABILITY_RECEIPT_ONLY",
-  "execution_authorized": false,
   "history_mode": "git_commit_finalization",
+  "work_status": "BASELINE_PERSISTED",
   "payload": {
-    "NEXT": "No substantive evidence was produced; the stabilization slot was durably recovered by the repository watchdog.",
-    "result": "SCHEDULER_WORKER_RECEIPT_MISSED"
+    "result": "NO_NEW_EVIDENCE_YET",
+    "baseline": "659 physical CSV members; 13,788,256 logical rows; 542 distinct SHA-256 contents; 803 extracted physical files",
+    "NEXT": "Durability proven; substantive CSV evidence remains deferred during stabilization."
   },
-  "receipt_origin": "github_watchdog_stabilization_fallback",
-  "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
-  "schema_version": "scheduler-finalization-v5.7",
-  "work_status": "WATCHDOG_FALLBACK_PERSISTED",
-  "worker_execution_observed": false
+  "BACKLOG_DURABLE": false,
+  "execution_authorized": false
 }
