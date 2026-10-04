@@ -530,5 +530,32 @@ class WatchdogTests(unittest.TestCase):
             self.assertEqual(changed, [])
 
 
+    def test_workflow_binds_heartbeat_after_finalization_commit(self):
+        repo_root = Path(__file__).resolve().parents[1]
+        workflow = (
+            repo_root / ".github" / "workflows" / "restored-five-durability-watchdog.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("- name: Commit verified recovery state", workflow)
+        self.assertIn("- name: Bind committed finalization into heartbeat", workflow)
+        self.assertIn(
+            '--lane "advanced_csv|automation_intelligence/advanced_csv|6abaef9d5c28819190d98a5af7f308b8"',
+            workflow,
+        )
+        self.assertIn(
+            'git commit -m "automation: bind Advanced CSV heartbeat to committed finalization [skip ci]"',
+            workflow,
+        )
+
+        mirror_block = workflow.split(
+            "- name: Bind committed finalization into heartbeat", 1
+        )[1]
+        self.assertNotIn("--stabilization-fallback", mirror_block)
+        self.assertIn(
+            "automation_intelligence/advanced_csv/heartbeat.json",
+            mirror_block,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
