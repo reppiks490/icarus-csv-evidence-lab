@@ -1,9 +1,9 @@
 {
-  "RUN_ID": "advanced-csv-20261006T011500Z",
+  "RUN_ID": "advanced-csv-20261006T071500Z",
   "RUN_STATUS": "RUN_PERSISTED",
   "execution_authorized": false,
-  "finalization_commit_sha": "3aa534ae03cdd8a368deae3b5b1d6958d00e8f39",
-  "finalization_state_blob_sha": "f12708e70874f60b63a46eda8752ce4c1cb99df3",
+  "finalization_commit_sha": "addeb5d0037374c44cfd50ced810fb7f66923336",
+  "finalization_state_blob_sha": "5516741df7927d5ec0fafc7481a93ec301a474d8",
   "recovered_by": "restored-five-durability-watchdog",
   "scheduler_id": "6abaef9d5c28819190d98a5af7f308b8",
   "schema_version": "scheduler-heartbeat-watchdog-v2"
