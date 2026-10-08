@@ -200,10 +200,11 @@ def audit_paths(paths: Iterable[str | Path], *, delimiter: str | None = None) ->
         if path.is_file() and path.suffix.lower() == ".csv":
             files.append(path)
         elif path.is_dir():
-            files.extend(path.rglob("*.csv"))
+            files.extend(candidate for candidate in path.rglob("*")
+                         if candidate.is_file() and candidate.suffix.lower() == ".csv")
         else:
             raise FileNotFoundError(path)
-    unique = sorted(set(files), key=lambda p: str(p).casefold())
+    unique = sorted(set(files), key=lambda p: (str(p).casefold(), str(p)))
     reports = [audit_file(path, delimiter=delimiter) for path in unique]
     by_hash: dict[str, list[str]] = {}
     for report in reports:
