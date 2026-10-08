@@ -109,6 +109,31 @@ class AuditTests(unittest.TestCase):
         path.write_text(f"{long_name},another\n1,2\n", encoding="utf-8")
         self.assertEqual(audit_file(path, delimiter=",")["header"][0], long_name)
 
+    def test_directory_scan_includes_every_csv_extension_case_recursively(self):
+        corpus = self.root / 'SYNTHETIC_CASE_COVERAGE'
+        nested = corpus / 'nested'
+        nested.mkdir(parents=True)
+        source = b'time,open,high,low,close\n2026-01-01T10:00:00Z,100,101,99,100\n'
+        paths = [corpus / 'first.csv', nested / 'second.CSV', nested / 'third.CsV']
+        for path in paths: path.write_bytes(source)
+        (nested / 'notes.txt').write_bytes(source)
+        report = audit_paths([corpus], delimiter=',')
+        self.assertEqual(report['file_count'], 3)
+        self.assertEqual({row['path'] for row in report['files']}, {str(p.resolve()) for p in paths})
+        self.assertTrue(all(row['rows'] == 1 for row in report['files']))
+        self.assertEqual(len(report['identical_content_groups'][0]), 3)
+        for path in paths: self.assertEqual(path.read_bytes(), source)
+
+    def test_csv_named_directory_does_not_abort_recursive_file_audit(self):
+        corpus = self.root / 'SYNTHETIC_DIRECTORY_COVERAGE'
+        misleading = corpus / 'directory.csv'
+        misleading.mkdir(parents=True)
+        path = misleading / 'actual.csv'
+        path.write_text('time,open,high,low,close\n2026-01-01T10:00:00Z,100,101,99,100\n', encoding='utf-8')
+        report = audit_paths([corpus], delimiter=',')
+        self.assertEqual(report['file_count'], 1)
+        self.assertEqual(report['files'][0]['path'], str(path.resolve()))
+
 
 if __name__ == "__main__":
     unittest.main()
