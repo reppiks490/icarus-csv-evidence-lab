@@ -46,3 +46,8 @@ This lets the actively running CSV evidence lane collaborate with ICARUS without
 The first local probe read three owner exports without modifying them: two NQ 20-minute files and one GC 20-minute file. All had five OHLC-like columns and parsed, but the NQ files differed by 11 rows and had different SHA-256 hashes. Chart type, roll mode, session, timezone, provider, and first-known availability remain unverified. This is not a parity or profitability result.
 
 The next work is explicit in [docs/ROADMAP.md](docs/ROADMAP.md). Do not wire this scanner to auto-promote a file into live or model-training use.
+
+## License and ownership
+
+Copyright (c) 2026 reppiks490. **Proprietary — all rights reserved.**
+Public visibility does not grant permission to reuse, redistribute, sell, or claim this work as your own. Written permission is required except where applicable law, existing grants, third-party terms, or GitHub's terms provide otherwise. See [LICENSE.md](LICENSE.md) for the full notice and permission requests.
